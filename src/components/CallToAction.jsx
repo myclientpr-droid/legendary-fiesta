@@ -8,7 +8,7 @@ const CallToAction = () => {
         <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
           Your support can help transform lives and create lasting change in communities around the world.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Link href="/donate" className="btn-primary bg-white text-primary-700 hover:bg-gray-100">
             Make a Donation
           </Link>

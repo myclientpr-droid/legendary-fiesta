@@ -20,6 +20,8 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'Programs', href: '/programs' },
     { name: 'News', href: '/news' },
+    { name: 'Get Involved', href: '/get-involved' },
+    { name: 'About', href: '/about' },
   ];
   // mobile links 
   const navLinks = [
@@ -30,7 +32,12 @@ const Navbar = () => {
     { name: 'Get Involved', href: '/get-involved' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
-  ]
+  ];
+  // mobile horizontal navs
+  const horizonNavLinks = [
+    { name: 'Programs', href: '/programs' },
+    { name: 'News', href: '/news' },
+  ];
 
   return (
     <nav className="w-full bg-white shadow-md fixed z-[999]">
@@ -61,7 +68,7 @@ const Navbar = () => {
             ))}
             
             {/* Auth Buttons - Desktop */}
-            <div className="flex items-center space-x-4 ml-4">
+            {/*<div className="flex items-center space-x-4 ml-4">
               <SignedOut>
                 <div className="flex items-center space-x-4">
                   <SignInButton mode="modal">
@@ -78,12 +85,12 @@ const Navbar = () => {
               </SignedOut>
               <SignedIn>
                 <div className="flex items-center space-x-4">
-                  {/*<Link
+                  <Link
                     href="/dashboard"
                     className="text-gray-700 hover:text-primary-600 font-medium transition duration-300"
                   >
                     Dashboard
-                  </Link>*/}
+                  </Link>
                   <UserButton 
                     appearance={{
                       elements: {
@@ -93,11 +100,11 @@ const Navbar = () => {
                   />
                 </div>
               </SignedIn>
-            </div>
+            </div>*/}
 
             <Link
               href="/donate"
-              className="bg-emerald-600 text-white rounded-full font-medium px-5 py-2 hover:bg-emerald-700 transition duration-300"
+              className="bg-emerald-700 text-white rounded-full font-medium px-5 py-2 hover:bg-emerald-800 transition duration-300"
             >
               Donate
             </Link>
@@ -105,7 +112,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="flex items-center space-x-4 md:hidden">
-            <SignedOut>
+            {/*<SignedOut>
               <SignInButton mode="modal">
                 <button className="text-gray-700 hover:text-primary-600 font-medium text-sm">
                   Sign In
@@ -120,11 +127,21 @@ const Navbar = () => {
                   }
                 }}
               />
-            </SignedIn>
+            </SignedIn>*/}
+            {/* horizonNavLinks */}
+            {horizonNavLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-gray-700 hover:text-primary-600 font-medium transition duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
+            
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-1"
-            >
+              className="p-1">
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-gray-700" />
               ) : (
@@ -149,7 +166,7 @@ const Navbar = () => {
             ))}
             
             {/* Auth Buttons - Mobile */}
-            <div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
+            {/*<div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
               <SignedOut>
                 <SignInButton mode="modal">
                   <button 
@@ -176,12 +193,12 @@ const Navbar = () => {
                   Dashboard
                 </Link>
               </SignedIn>
-            </div>
+            </div>*/}
 
             <div className="px-4 pt-4">
               <Link
                 href="/donate"
-                className="block w-full bg-emerald-600 text-white rounded-full font-medium py-3 text-center hover:bg-emerald-700 transition duration-300"
+                className="block w-full bg-emerald-700 text-white rounded-full font-medium py-3 text-center hover:bg-emerald-800 transition duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Donate

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <div className="section-padding">
@@ -20,9 +22,8 @@ export default function AboutPage() {
               Founded in 2024, we have grown from a small local initiative to an international organization impacting thousands of lives annually.
             </p>
           </div>
-          <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-            {/* Placeholder for mission image */}
-            <div className="text-gray-500">Mission Image</div>
+          <div className="bg-gray-300 rounded-lg flex items-center justify-center">
+            <Image src="/ash-banner.png" alt="banner" width={850} height={300} className='rounded-lg'/>
           </div>
         </div>
 

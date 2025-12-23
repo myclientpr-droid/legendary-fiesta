@@ -1,65 +1,34 @@
-export const programs = [
-  {
-    id: "1",
-    title: 'Education for All',
-    description: 'Providing quality education to underprivileged children',
-    category: 'Education',
-    image: '/education.jpeg',
-    details: 'Scholarships, school supplies, and tutoring programs',
-  },
+export const programs = [{
+  id: "1",
+  title: 'Education for All',
+  description: 'We believe that every child deserves the chance to learn, no matter where they come from or what challenges they face. Through our Education for All program, we support refugee and marginalized children who are often left out of formal schooling. We create safe and supportive learning spaces where children can study, ask questions, and grow with confidence. Our focus is not only on subjects like language, science, and basic skills, but also on helping children believe in themselves and their future.',
+  category: 'Education',
+  image: '/education.jpeg',
+  details: 'Scholarships, school supplies, and tutoring programs',
+  featured: true,
+},
   {
     id: "2",
-    title: 'Health & Wellness',
-    description: 'Free medical camps and health awareness programs',
-    category: 'Health',
-    image: '/health.jpeg',
-    details: 'Medical checkups, vaccinations, and health education',
-  },
-  {
-    id: "3",
-    title: 'Community Development',
-    description: 'Empowering communities through skill development',
-    category: 'Community',
-    image: '/community.jpeg',
-    details: 'Vocational training and infrastructure projects',
-  },
-  {
-    id: "4",
-    title: 'Environmental Sustainability',
-    description: 'Promoting eco-friendly practices in communities',
-    category: 'Environment',
-    image: '/sustain.jpeg',
-    details: 'Tree planting, recycling initiatives, and conservation',
-  },
-  {
-    id: "5",
-    title: 'Women Empowerment',
-    description: 'Supporting women through education and entrepreneurship',
-    category: 'Empowerment',
-    image: '/women.jpeg',
-    details: 'Business training and microloans for women',
-  },
-  {
-    id: "6",
-    title: 'Disaster Relief',
-    description: 'Emergency response and recovery assistance',
-    category: 'Relief',
-    image: '/disaster.jpeg',
-    details: 'Food, shelter, and medical aid during crises',
-  },
-];
+    title: "Human Trafficking Prevention Workshop",
+    description: "A youth-focused awareness workshop aimed at educating participants on the risks of human trafficking and prevention strategies.",
+    category: "Awareness",
+    image: "/awareness.jpg",
+    details: "Interactive sessions, scenario-based learning, group discussions, personal safety guidance, identification of trafficking risks, and community advocacy.",
+    featured: true,
+  }];
 
-export const newsArticles = [
-  {
-    id: 1,
-    title: 'Aurbina Scholars Hub Announces 2024 Scholarship Recipients',
-    excerpt: 'We are proud to announce the 150 students who have been selected for our 2024 scholarship programs, representing diverse backgrounds and academic excellence.',
-    date: '2024-05-15',
-    image: '/scholarship.jpeg',
-    slug: '2024-scholarship-recipients',
-    category: 'Announcements',
-    readTime: '3 min read'
-  },
+export const newsArticles = [{
+  id: 1,
+  title: 'Aurbina Scholars Hub Announces 2024 Scholarship Recipients',
+  excerpt: 'We are proud to announce the 150 students who have been selected for our 2024 scholarship programs, representing diverse backgrounds and academic excellence.',
+  date: '2024-05-15',
+  image: '/scholarship.jpeg',
+  slug: '2024-scholarship-recipients',
+  category: 'Announcements',
+  content: "Full article content goes here...",
+  readTime: '3 min read',
+  latest: true,
+},
   {
     id: 2,
     title: 'Partnership with Leading Universities Announced',
@@ -68,7 +37,8 @@ export const newsArticles = [
     image: '/partner.jpeg',
     slug: 'university-partnerships',
     category: 'Partnerships',
-    readTime: '3 min read'
+    content: "Full article content goes here...",
+    readTime: '3 min read',
   },
   {
     id: 3,
@@ -78,7 +48,8 @@ export const newsArticles = [
     image: '/application.jpeg',
     slug: 'new-application-portal',
     category: 'Updates',
-    readTime: '2 min read'
+    content: "Full article content goes here...",
+    readTime: '2 min read',
   },
   {
     id: 4,
@@ -88,7 +59,9 @@ export const newsArticles = [
     image: '/international-scholarship.jpeg',
     slug: 'expanding-international-opportunities',
     category: 'Programs',
-    readTime: '4 min read'
+    content: "Full article content goes here...",
+    readTime: '4 min read',
+    latest: true,
   },
   {
     id: 6,
@@ -98,6 +71,6 @@ export const newsArticles = [
     image: '/research.jpeg',
     slug: 'research-grant-program',
     category: 'Programs',
+    content: "Full article content goes here...",
     readTime: '4 min read'
-  }
-];
+  }];

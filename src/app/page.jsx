@@ -2,51 +2,12 @@ import Hero from '@/components/Hero'
 import CallToAction from '@/components/CallToAction'
 import ProgramCard from '@/components/ProgramCard'
 import NewsCard from '@/components/NewsCard'
+import { newsArticles, programs } from "@/data/programs"
+
 
 // Temporary data - replace with API calls
-const featuredPrograms = [
-  {
-    id: 1,
-    title: 'Education for All',
-    description: 'Providing quality education to underprivileged children',
-    category: 'Education',
-    image: '/education.jpeg',
-  },
-  {
-    id: 2,
-    title: 'Health & Wellness',
-    description: 'Free medical camps and health awareness programs',
-    category: 'Health',
-    image: '/health.jpeg',
-  },
-  {
-    id: 3,
-    title: 'Community Development',
-    description: 'Empowering communities through skill development',
-    category: 'Community',
-    image: '/community.jpeg',
-  },
-]
-
-const latestNews = [
-  {
-    id: 1,
-    title: 'Annual Charity Event Success',
-    excerpt: 'Our annual fundraiser raised over $50,00 for local communities',
-    date: '2024-03-15',
-    image: '/charity.jpeg',
-    slug: 'annual-charity-event-success',
-  },
-  {
-    id: 2,
-    title: 'New Partnership Announcement',
-    excerpt: 'Partnering with local businesses to expand our reach',
-    date: '2024-03-10',
-    image: '/partner.jpeg',
-    slug: 'new-partnership-announcement',
-  },
-]
-
+const featuredPrograms = programs.filter(item => item.featured);
+const latestNews = newsArticles.filter(item => item.latest);
 export default function HomePage() {
   return (
     <>

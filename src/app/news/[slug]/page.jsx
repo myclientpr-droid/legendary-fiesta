@@ -65,10 +65,7 @@ export default async function NewsDetailPage({ params }) {
 
             {/* Full Content */}
             <div className="prose max-w-none">
-              <p className="text-gray-700">
-                Full article content goes here. You can extend your data structure 
-                to include a `content` field with the complete article text.
-              </p>
+              <p className="text-gray-700">{news.content}</p>
             </div>
           </div>
         </div>

@@ -13,10 +13,10 @@ const Hero = () => {
             We are a non-profit organization dedicated to creating lasting change through education, healthcare, and community development initiatives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/donate" className="btn-primary bg-white text-primary-700 hover:bg-gray-100">
+            <Link href="/donate" className="btn-primary bg-white text-primary-700 hover:bg-gray-100" aria-lebel='donate'>
               Donate Now
             </Link>
-            <Link href="/about" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700">
+            <Link href="/about" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700" aria-lebel="learn more about us">
               Learn More
             </Link>
           </div>
