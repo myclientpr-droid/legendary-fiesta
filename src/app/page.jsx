@@ -1,0 +1,125 @@
+import Hero from '@/components/Hero'
+import CallToAction from '@/components/CallToAction'
+import ProgramCard from '@/components/ProgramCard'
+import NewsCard from '@/components/NewsCard'
+
+// Temporary data - replace with API calls
+const featuredPrograms = [
+  {
+    id: 1,
+    title: 'Education for All',
+    description: 'Providing quality education to underprivileged children',
+    category: 'Education',
+    image: '/images/programs/education.jpg',
+  },
+  {
+    id: 2,
+    title: 'Health & Wellness',
+    description: 'Free medical camps and health awareness programs',
+    category: 'Health',
+    image: '/images/programs/health.jpg',
+  },
+  {
+    id: 3,
+    title: 'Community Development',
+    description: 'Empowering communities through skill development',
+    category: 'Community',
+    image: '/images/programs/community.jpg',
+  },
+]
+
+const latestNews = [
+  {
+    id: 1,
+    title: 'Annual Charity Event Success',
+    excerpt: 'Our annual fundraiser raised over $50,000 for local communities',
+    date: '2024-03-15',
+    image: '/images/news/event.jpg',
+    slug: 'annual-charity-event-success',
+  },
+  {
+    id: 2,
+    title: 'New Partnership Announcement',
+    excerpt: 'Partnering with local businesses to expand our reach',
+    date: '2024-03-10',
+    image: '/images/news/partnership.jpg',
+    slug: 'new-partnership-announcement',
+  },
+]
+
+export default function HomePage() {
+  return (
+    <>
+      <Hero />
+      
+      {/* Featured Programs */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="mb-4">Our Programs</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We run various programs aimed at making a tangible difference in people's lives
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredPrograms.map((program) => (
+              <ProgramCard key={program.id} program={program} />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <a href="/programs" className="btn-secondary">
+              View All Programs
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest News */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="mb-4">Latest News & Updates</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Stay updated with our latest activities and achievements
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {latestNews.map((news) => (
+              <NewsCard key={news.id} news={news} />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <a href="/news" className="btn-primary">
+              Read All News
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Statistics */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: '10K+', label: 'Lives Impacted' },
+              { number: '500+', label: 'Volunteers' },
+              { number: '50+', label: 'Communities Served' },
+              { number: '15+', label: 'Years of Service' },
+            ].map((stat, index) => (
+              <div key={index} className="p-6">
+                <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CallToAction />
+    </>
+  )
+}
