@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from "next/image";
 
 const NewsCard = ({ news }) => {
   const formatDate = (dateString) => {
@@ -11,11 +12,10 @@ const NewsCard = ({ news }) => {
 
   return (
     <div className="card h-full">
-      <div className="h-48 bg-gray-300 flex items-center justify-center">
+      <div className="h-54 bg-gray-300 flex items-center justify-center">
         {/* Placeholder image - replace with actual image */}
         <div className="text-gray-500">
-          <div className="h-10 w-10 mx-auto bg-gray-400 rounded-full mb-2"></div>
-          News Image
+          <Image src={news.image} alt="" width={450} height={300} className='object-cover'/>
         </div>
       </div>
       <div className="p-6">

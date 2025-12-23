@@ -10,21 +10,21 @@ const featuredPrograms = [
     title: 'Education for All',
     description: 'Providing quality education to underprivileged children',
     category: 'Education',
-    image: '/images/programs/education.jpg',
+    image: '/education.jpeg',
   },
   {
     id: 2,
     title: 'Health & Wellness',
     description: 'Free medical camps and health awareness programs',
     category: 'Health',
-    image: '/images/programs/health.jpg',
+    image: '/health.jpeg',
   },
   {
     id: 3,
     title: 'Community Development',
     description: 'Empowering communities through skill development',
     category: 'Community',
-    image: '/images/programs/community.jpg',
+    image: '/community.jpeg',
   },
 ]
 
@@ -32,9 +32,9 @@ const latestNews = [
   {
     id: 1,
     title: 'Annual Charity Event Success',
-    excerpt: 'Our annual fundraiser raised over $50,000 for local communities',
+    excerpt: 'Our annual fundraiser raised over $50,00 for local communities',
     date: '2024-03-15',
-    image: '/images/news/event.jpg',
+    image: '/charity.jpeg',
     slug: 'annual-charity-event-success',
   },
   {
@@ -42,7 +42,7 @@ const latestNews = [
     title: 'New Partnership Announcement',
     excerpt: 'Partnering with local businesses to expand our reach',
     date: '2024-03-10',
-    image: '/images/news/partnership.jpg',
+    image: '/partner.jpeg',
     slug: 'new-partnership-announcement',
   },
 ]
@@ -105,10 +105,10 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: '10K+', label: 'Lives Impacted' },
-              { number: '500+', label: 'Volunteers' },
-              { number: '50+', label: 'Communities Served' },
-              { number: '15+', label: 'Years of Service' },
+              { number: '5K+', label: 'Lives Impacted' },
+              { number: '50+', label: 'Volunteers' },
+              { number: '20+', label: 'Communities Served' },
+              { number: '3+', label: 'Years of Service' },
             ].map((stat, index) => (
               <div key={index} className="p-6">
                 <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
