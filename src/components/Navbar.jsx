@@ -140,14 +140,15 @@ const Navbar = () => {
             ))}
             
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-1">
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" aria-label="Open menu" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
-              )}
-            </button>
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-1"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
+        {isMenuOpen ? (
+        <X className="w-6 h-6 text-gray-700" aria-hidden="true" />
+          ) : (
+        <Menu className="w-6 h-6 text-gray-700" aria-hidden="true" />
+  )}
+</button>
           </div>
         </div>
 
