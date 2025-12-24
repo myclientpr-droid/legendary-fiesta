@@ -36,7 +36,7 @@ const Navbar = () => {
   // mobile horizontal navs
   const horizonNavLinks = [
     { name: 'Programs', href: '/programs' },
-    { name: 'News', href: '/news' },
+    //{ name: 'News', href: '/news' },
   ];
 
   return (

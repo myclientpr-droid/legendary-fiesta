@@ -17,7 +17,7 @@ export const programs = [{
     featured: true,
   }];
 
-export const newsArticles = [{
+export const newsArticles = [/*{
   id: 1,
   title: 'Aurbina Scholars Hub Announces 2024 Scholarship Recipients',
   excerpt: 'We are proud to announce the 150 students who have been selected for our 2024 scholarship programs, representing diverse backgrounds and academic excellence.',
@@ -73,4 +73,4 @@ export const newsArticles = [{
     category: 'Programs',
     content: "Full article content goes here...",
     readTime: '4 min read'
-  }];
+  }*/];

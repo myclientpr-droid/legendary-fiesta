@@ -62,7 +62,7 @@ export default function HomePage() {
       </section>
 
       {/* Impact Statistics */}
-      <section className="section-padding">
+      {/*<section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -78,7 +78,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       <CallToAction />
     </>
