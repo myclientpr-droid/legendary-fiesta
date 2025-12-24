@@ -2,12 +2,12 @@ import { newsArticles } from '@/data/programs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
-import { auth } from "@clerk/nextjs/server";
+//import { auth } from "@clerk/nextjs/server";
 
 export default async function NewsDetailPage({ params }) {
   const { slug } = await params;
-  const { userId } = await auth();
-  if(!userId) return null;
+  /*const { userId } = await auth();
+  if(!userId) return null;*/
   const news = newsArticles.find((article) => article.slug === slug);
   
   if (!news) return null;
