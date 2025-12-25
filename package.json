@@ -11,7 +11,10 @@
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",
     "autoprefixer": "^10.4.0",
+    "axios": "^1.13.2",
+    "cloudinary": "^2.8.0",
     "lucide-react": "^0.562.0",
+    "mongoose": "^9.0.2",
     "next": "15.5.9",
     "postcss": "^8.4.0",
     "react": "^19",
