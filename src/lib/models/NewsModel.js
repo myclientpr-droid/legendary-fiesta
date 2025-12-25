@@ -43,7 +43,7 @@ const NewsSchema = new mongoose.Schema({
   isLatest: {
     type: Boolean,
     default: false
-  }
+  },
   priority: {
     type: Number,
     default : 0,
