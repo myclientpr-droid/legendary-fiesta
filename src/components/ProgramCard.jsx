@@ -1,35 +1,51 @@
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 
 const ProgramCard = ({ program }) => {
-  const truncate = (text, limit = 100) => {
-    return text.length > limit ? text.slice(0, limit) + "..." : text;
+  const truncated = (text, limit = 100) => {
+    return text?.length > limit ? text?.slice(0, limit) + "..." : text;
   }
   return (
-    <div className="card h-full">
-      <div className="h-54 bg-gray-300 flex items-center justify-center">
-        {/* Placeholder image - replace with actual image */}
-        <div className="text-gray-500">
-          <Image src={program.image} alt="" width={450} height={300} className='object-cover'/>
-        </div>
+    <div className="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+      
+      {/* Image */}
+      <div className="relative w-full h-52 overflow-hidden bg-gray-100">
+        <Image
+          src={program.image}
+          alt={program.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+        />
       </div>
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-bold">{program.title}</h3>
-          <span className="bg-primary-100 text-primary-800 text-xs font-semibold px-3 py-1 rounded-full">
-            {program.category}
-          </span>
-        </div>
-        <p className="text-gray-600 mb-4">{truncate(program.description, 100)}</p>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5">
+        
+        {/* Category */}
+        <span className="inline-block mb-2 text-xs font-semibold text-primary-700 bg-primary-100 px-3 py-1 rounded-full w-fit">
+          {program.category}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-gray-900 leading-snug mb-2">
+          {program.title}
+        </h3>
+
+        {/* Short description */}
+        <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+          {truncated(program.shortDescription)}
+        </p>
+
+        {/* CTA */}
         <Link
-          href={`/programs/${program.id}`}
-          className="text-primary-600 hover:text-primary-800 font-medium inline-flex items-center"
+          href={`/programs/${program.slug}`}
+          className="mt-auto inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-800 transition"
         >
-          Learn More →
+          Learn more →
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProgramCard
+export default ProgramCard;

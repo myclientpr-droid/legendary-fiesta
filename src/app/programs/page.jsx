@@ -1,8 +1,14 @@
 import ProgramCard from '@/components/ProgramCard'
-import { programs } from '@/data/programs';
 
-
-export default function ProgramsPage() {
+export default async function ProgramsPage() {
+  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/programs`, {
+    cache: "no-store",
+  });
+  if(!res.ok) return <div className='section-padding container-custom'>No programs found</div>
+  const json = await res.json();
+  const programs = json.data;
+  
   return (
     <div className="section-padding">
       <div className="container-custom">
@@ -12,8 +18,8 @@ export default function ProgramsPage() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((program) => (
-            <ProgramCard key={program.id} program={program} />
+          {programs.map((program, idx) => (
+            <ProgramCard key={idx} program={program} />
           ))}
         </div>
         

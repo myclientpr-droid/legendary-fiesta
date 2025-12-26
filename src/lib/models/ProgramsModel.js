@@ -24,15 +24,13 @@ const ProgramSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["Education", "Health", "Relife", "Community"],
+    enum: ["Education", "Health", "Relief", "Community", "Awareness"],
     required: true,
   },
-  image: [
-    {
+  image:{
     type: String,
     required: true,
-    }
-  ],
+  },
   status: {
     type: String,
     enum: ["draft", "published"],

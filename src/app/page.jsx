@@ -2,13 +2,19 @@ import Hero from '@/components/Hero'
 import CallToAction from '@/components/CallToAction'
 import ProgramCard from '@/components/ProgramCard'
 import NewsCard from '@/components/NewsCard'
-import { newsArticles, programs } from "@/data/programs"
+import { newsArticles } from "@/data/programs"
 
 
-// Temporary data - replace with API calls
-const featuredPrograms = programs.filter(item => item.featured);
 const latestNews = newsArticles.filter(item => item.latest);
-export default function HomePage() {
+export default async function HomePage() {
+
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/programs`, {
+  cache: "no-store",
+});
+if(!res.ok) return <div className='section-padding container-custom'>No programs found</div>
+const {data} = await res.json();
+const programs = data;
+
   return (
     <>
       <Hero />
@@ -24,8 +30,8 @@ export default function HomePage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPrograms.map((program) => (
-              <ProgramCard key={program.id} program={program} />
+            {programs.map((program, idx) => (
+              <ProgramCard key={idx} program={program} />
             ))}
           </div>
           
@@ -48,8 +54,8 @@ export default function HomePage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {latestNews.map((news) => (
-              <NewsCard key={news.id} news={news} />
+            {latestNews.map((news, idx) => (
+              <NewsCard key={idx} news={news} />
             ))}
           </div>
           
