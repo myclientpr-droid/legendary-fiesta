@@ -3,7 +3,7 @@ const AdminPage = () => {
   return (
     <div className='section-padding'>
       <div className='container-custom'>
-      AdminPage
+      Admin panel is coming soon
       </div>
     </div>)
 }

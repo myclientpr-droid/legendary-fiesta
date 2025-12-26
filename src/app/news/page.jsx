@@ -1,10 +1,15 @@
 import NewsCard from '@/components/NewsCard';
-import { newsArticles } from '@/data/programs';
 //import { auth } from "@clerk/nextjs/server";
 
 export default async function NewsPage() {
   //const { userId } = await auth();
   //if(!userId) return null;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news`, {
+    cache: "no-store",
+  });
+  if(!res.ok) return <div className='section-padding container-custom'>No programs found</div>
+  const {news} = await res.json();
+  const newsArticles = news;
   
   return (
     <div className="section-padding">
@@ -21,8 +26,8 @@ export default async function NewsPage() {
         <div>
           <h2 className="text-2xl font-bold mb-8">Latest News</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {newsArticles.map((article) => {
-              return <NewsCard key={article.id} news={article} />
+            {newsArticles.map((article, idx) => {
+              return <NewsCard key={idx} news={article} />
             })}
           </div>
         </div>

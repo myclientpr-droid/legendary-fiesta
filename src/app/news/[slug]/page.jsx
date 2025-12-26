@@ -1,4 +1,3 @@
-import { newsArticles } from '@/data/programs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
@@ -8,8 +7,8 @@ export default async function NewsDetailPage({ params }) {
   const { slug } = await params;
   /*const { userId } = await auth();
   if(!userId) return null;*/
-  const news = newsArticles.find((article) => article.slug === slug);
-  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news/${slug}`)
+  const {news} = await res.json()
   if (!news) return null;
 
   return (
@@ -29,7 +28,7 @@ export default async function NewsDetailPage({ params }) {
           {/* Image */}
           <div className="relative h-64 md:h-80">
             <Image
-              src={news.image}
+              src={news.coverImage}
               alt={news.title}
               fill
               className="object-cover"
@@ -49,7 +48,7 @@ export default async function NewsDetailPage({ params }) {
               </span>
               <span className="flex items-center text-gray-600">
                 <Clock className="w-4 h-4 mr-1" />
-                {news.readTime}
+                {news?.readTime}
               </span>
             </div>
 

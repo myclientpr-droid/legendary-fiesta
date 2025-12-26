@@ -49,7 +49,7 @@ const ProgramSchema = new mongoose.Schema({
     metaDescription: String,
   },
 }, {
-  timeStamps: true
+  timestamps: true
 });
 
 const Programs = mongoose.models.Programs || mongoose.model("Programs", ProgramSchema);

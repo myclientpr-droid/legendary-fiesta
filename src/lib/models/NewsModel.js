@@ -24,7 +24,7 @@ const NewsSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["Education", "Health", "Relief", "Community", "Events", "Announcements", "Updates", "Stories"],
+    enum: ["Education", "Health", "Relief", "Community", "Events", "Announcements", "Updates", "Stories", "Emergency"],
     required: true,
   },
   coverImage: {
@@ -53,7 +53,7 @@ const NewsSchema = new mongoose.Schema({
     metaDescription: String,
   },
 }, {
-  timeStamps: true
+  timestamps: true
 });
 
 const News = mongoose.models.News || mongoose.model("News", NewsSchema);

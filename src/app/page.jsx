@@ -2,18 +2,26 @@ import Hero from '@/components/Hero'
 import CallToAction from '@/components/CallToAction'
 import ProgramCard from '@/components/ProgramCard'
 import NewsCard from '@/components/NewsCard'
-import { newsArticles } from "@/data/programs"
+//import { newsArticles } from "@/data/programs"
 
 
-const latestNews = newsArticles.filter(item => item.latest);
+//const latestNews = newsArticles.filter(item => item.latest);
 export default async function HomePage() {
-
-const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/programs`, {
+// programs
+const resPrograms = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/programs`, {
   cache: "no-store",
 });
-if(!res.ok) return <div className='section-padding container-custom'>No programs found</div>
-const {data} = await res.json();
+if(!resPrograms.ok) return <div className='section-padding container-custom'>No programs found</div>
+const {data} = await resPrograms.json();
 const programs = data;
+
+// latestNews 
+const resNews = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news`, {
+  cache: "no-store",
+});
+if(!resNews.ok) return <div className='section-padding container-custom'>No news found</div>
+const {news} = await resNews.json();
+const latestNews = news;
 
   return (
     <>

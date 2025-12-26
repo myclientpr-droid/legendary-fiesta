@@ -35,7 +35,7 @@ export const POST = async (req) => {
     const uploalResult = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         {
-          folder: "ash",
+          folder: "ash-programs",
           resource_type: "auto",
         },
         (error, result) => {
@@ -56,7 +56,7 @@ export const POST = async (req) => {
       slug,
     });
     await program.save();
-    return NextResponse.json({success: true, message: "Program save successfully"}, {status: 201});
+    return NextResponse.json({success: true, message: "Program saved successfully"}, {status: 201});
   } catch (e) {
     console.log("Error:", e)
     return NextResponse.json({success: false, message: e.message}, {status: 500});

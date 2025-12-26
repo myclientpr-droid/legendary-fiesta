@@ -54,9 +54,9 @@ export const ProgramsForm = ()=> {
           status: "",
         });
         setImage(false);
-        return toast.success("Program added successfully");
+        return toast.success(response.data.message);
       } else {
-        return toast.error("Failed to add program");
+        return toast.error(response.data.message || "Failed to add program");
       }
     } catch (e) {
       return toast.error(e.message);
@@ -141,7 +141,7 @@ export const ProgramsForm = ()=> {
       value={data.shortDescription}
       onChange={handleChange}
       placeholder="Briefly describe the program"
-      rows={4}
+      rows={3}
       required
       className="input-field resize-none"
     />

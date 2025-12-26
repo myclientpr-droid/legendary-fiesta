@@ -11,7 +11,6 @@ export const GET = async (req, {params}) => {
     if(!data) return NextResponse.json({success: false, message: "Program not found"}, {status: 404});
     return NextResponse.json({success: true, data}, {status: 200});
   } catch (e) {
-    console.log("Error:", e)
   return NextResponse.json({success: false, message: e.message}, {status:500});
   }
 }

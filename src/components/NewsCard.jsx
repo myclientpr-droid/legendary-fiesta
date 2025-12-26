@@ -12,15 +12,15 @@ const NewsCard = ({ news }) => {
 
   return (
     <div className="card h-full">
-      <div className="h-54 bg-gray-300 flex items-center justify-center">
+      <div className="bg-gray-300 flex items-center justify-center">
         {/* Placeholder image - replace with actual image */}
         <div className="text-gray-500">
-          <Image src={news.image} alt="" width={450} height={300} className='object-cover'/>
+          <Image src={news.coverImage} alt="" width={450} height={300} className='object-cover max-h-[300px] overflow-hidden'/>
         </div>
       </div>
       <div className="p-6">
         <div className="text-sm text-gray-500 mb-2">
-          {formatDate(news.date)}
+          {formatDate(news.publishedAt)}
         </div>
         <h3 className="text-xl font-bold mb-3">{news.title}</h3>
         <p className="text-gray-600 mb-4">{news.excerpt}</p>
