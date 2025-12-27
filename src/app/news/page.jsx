@@ -1,9 +1,6 @@
 import NewsCard from '@/components/NewsCard';
-//import { auth } from "@clerk/nextjs/server";
 
 export default async function NewsPage() {
-  //const { userId } = await auth();
-  //if(!userId) return null;
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news`, {
     cache: "no-store",
   });

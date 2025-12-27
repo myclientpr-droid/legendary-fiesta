@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-const AdminHomePage = () => {
+export default async function AdminHomePage() {
+  
   const adminRoutes = [
     {
       title: "Manage News",
@@ -50,5 +51,3 @@ const AdminHomePage = () => {
     </section>
   );
 };
-
-export default AdminHomePage;

@@ -2,6 +2,7 @@ import { connectDB } from "@/lib/config/db";
 import { NextResponse } from "next/server";
 import Programs from "@/lib/models/ProgramsModel";
 import cloudinary from "@/lib/cloudinary";
+import { isAdmin } from "@/lib/config/isAdmin";
 
 export const GET = async (req) => {
   try {
@@ -14,8 +15,11 @@ export const GET = async (req) => {
 };
 
 export const POST = async (req) => {
-    await connectDB();
   try {
+    if(!(await isAdmin())) {
+      return NextResponse.json({success: false, message:"Unauthorized"}, {status: 403});
+    }
+    await connectDB();
     const formData = await req.formData();
     const title = formData.get("title");
     const shortDescription = formData.get("shortDescription");

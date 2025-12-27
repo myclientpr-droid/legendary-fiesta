@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/config/db";
 import { NextResponse } from "next/server";
 import News from "@/lib/models/NewsModel";
+import { isAdmin } from "@/lib/config/isAdmin";
 
 
 export const GET = async (req, {params}) => {
@@ -18,6 +19,9 @@ export const GET = async (req, {params}) => {
 export const DELETE = async (req, {params}) => {
   const { slug } = await params;
   try {
+    if(!(await isAdmin())) {
+      return NextResponse.json({success: false, message:"Unauthorized"}, {status: 403});
+    }
     await connectDB();
     await News.findOneAndDelete({slug});
     return NextResponse.json({success: true, message: "News deleted successfully"});

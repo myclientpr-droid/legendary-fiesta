@@ -19,7 +19,7 @@ const Navbar = () => {
   const desktopNavLinks = [
     { name: 'Home', href: '/' },
     { name: 'Programs', href: '/programs' },
-    { name: 'News', href: '/news' },
+    { name: 'Updates', href: '/news' },
     { name: 'Get Involved', href: '/get-involved' },
     { name: 'About', href: '/about' },
   ];
@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Programs', href: '/programs' },
-    { name: 'News', href: '/news' },
+    { name: 'Updates', href: '/news' },
     { name: 'Get Involved', href: '/get-involved' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
@@ -36,7 +36,7 @@ const Navbar = () => {
   // mobile horizontal navs
   const horizonNavLinks = [
     { name: 'Programs', href: '/programs' },
-    //{ name: 'News', href: '/news' },
+    { name: 'Updates', href: '/news' },
   ];
 
   return (
@@ -52,7 +52,7 @@ const Navbar = () => {
               height={40} 
               alt='logo'
             />
-            <span className="ml-3 text-xl font-bold text-gray-900">ASH</span>
+            <span className="ml-3 text-xl font-bold text-gray-900 sm:hidden">ASH</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -68,8 +68,8 @@ const Navbar = () => {
             ))}
             
             {/* Auth Buttons - Desktop */}
-            {/*<div className="flex items-center space-x-4 ml-4">
-              <SignedOut>
+        <div className="flex items-center space-x-4 ml-4">
+          {/*<SignedOut>
                 <div className="flex items-center space-x-4">
                   <SignInButton mode="modal">
                     <button className="text-gray-700 hover:text-primary-600 font-medium transition duration-300">
@@ -82,11 +82,11 @@ const Navbar = () => {
                     </button>
                   </SignUpButton>
                 </div>
-              </SignedOut>
-              <SignedIn>
+              </SignedOut>*/}
+          <SignedIn>
                 <div className="flex items-center space-x-4">
                   <Link
-                    href="/dashboard"
+                    href="/admin"
                     className="text-gray-700 hover:text-primary-600 font-medium transition duration-300"
                   >
                     Dashboard
@@ -100,7 +100,7 @@ const Navbar = () => {
                   />
                 </div>
               </SignedIn>
-            </div>*/}
+        </div>
 
             <Link
               href="/donate"
@@ -112,23 +112,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="flex items-center space-x-4 md:hidden">
-            {/*<SignedOut>
-              <SignInButton mode="modal">
-                <button className="text-gray-700 hover:text-primary-600 font-medium text-sm">
-                  Sign In
-                </button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton 
-                appearance={{
-                  elements: {
-                    userButtonAvatarBox: "w-8 h-8",
-                  }
-                }}
-              />
-            </SignedIn>*/}
-            {/* horizonNavLinks */}
+                        {/* horizonNavLinks */}
             {horizonNavLinks.map((link) => (
               <Link
                 key={link.name}
@@ -139,6 +123,22 @@ const Navbar = () => {
               </Link>
             ))}
             
+            {/*<SignedOut>
+              <SignInButton mode="modal">
+                <button className="text-gray-700 hover:text-primary-600 font-medium text-sm">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>*/}
+            <SignedIn>
+              <UserButton 
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-8 h-8",
+                  }
+                }}
+              />
+            </SignedIn>
             <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-1"
@@ -148,7 +148,7 @@ const Navbar = () => {
           ) : (
         <Menu className="w-6 h-6 text-gray-700" aria-hidden="true" />
   )}
-</button>
+          </button>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ const Navbar = () => {
             ))}
             
             {/* Auth Buttons - Mobile */}
-            {/*<div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
+            <div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
               <SignedOut>
                 <SignInButton mode="modal">
                   <button 
@@ -188,13 +188,13 @@ const Navbar = () => {
               </SignedOut>
               <SignedIn>
                 <Link
-                  href="/"
+                  href="/admin"
                   className="block py-3 px-4 text-gray-700 hover:text-primary-600 font-medium hover:bg-gray-50 rounded-lg"
                   onClick={() => setIsMenuOpen(false)}>
                   Dashboard
                 </Link>
               </SignedIn>
-            </div>*/}
+            </div>
 
             <div className="px-4 pt-4">
               <Link
