@@ -17,7 +17,7 @@ export default async function NewsDetailPage({ params }) {
         {/* Back Button */}
         <Link 
           href="/news" 
-          className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-6"
+          className="inline-flex items-center text-blue-500 underline hover:text-gray-900 mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back

@@ -13,4 +13,15 @@ export const GET = async (req, {params}) => {
   } catch (e) {
   return NextResponse.json({success: false, message: e.message}, {status:500});
   }
+};
+
+export const DELETE = async (req, {params}) => {
+  const { slug } = await params;
+  try {
+    await connectDB();
+    await News.findOneAndDelete({slug});
+    return NextResponse.json({success: true, message: "News deleted successfully"});
+  } catch (e) {
+    return NextResponse.json({success: false, message: e.message}, {status: 500});
+  }
 }
