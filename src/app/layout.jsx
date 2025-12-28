@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs'
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata = {
   title: 'Aurbina Scholars Hub - Making a Difference',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
       </body>
+      {typeof window !== undefined && <GoogleAnalytics gaId="G-B4F3FMW431" strategy="afterInteractive" />}
     </html>
   </ClerkProvider>
   )
