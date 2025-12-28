@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from "next/image";
+import FormatedText from "@/components/shared/FormatedText";
 
 const NewsCard = ({ news }) => {
   const formatDate = (dateString) => {
@@ -23,7 +24,7 @@ const NewsCard = ({ news }) => {
           {formatDate(news.publishedAt)}
         </div>
         <h3 className="text-xl font-bold mb-3">{news.title}</h3>
-        <p className="text-gray-600 mb-4">{news.excerpt}</p>
+        <div className="text-gray-600 mb-4"><FormatedText text={news.excerpt}/></div>
         <Link
           href={`/news/${news.slug}`}
           className="text-primary-600 hover:text-primary-800 font-medium inline-flex items-center"

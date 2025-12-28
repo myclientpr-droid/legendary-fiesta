@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import FormatedText from "@/components/shared/FormatedText";
 
 const ProgramCard = ({ program }) => {
   const truncated = (text, limit = 100) => {
@@ -32,9 +33,9 @@ const ProgramCard = ({ program }) => {
         </h3>
 
         {/* Short description */}
-        <p className="text-sm text-gray-600 line-clamp-3 mb-4">
-          {truncated(program.shortDescription)}
-        </p>
+        <div className="text-sm text-gray-600 line-clamp-3 mb-4">
+          <FormatedText text={truncated(program.shortDescription)}/>
+        </div>
 
         {/* CTA */}
         <Link
