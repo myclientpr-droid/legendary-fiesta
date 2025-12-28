@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   <ClerkProvider>
     <html lang="en">
       <body>
+      <GoogleAnalytics gaId="G-B4F3FMW431"/>
         <Navbar />
         <div className="flex flex-col min-h-screen">
           <main className="flex-grow mt-[3.3rem]">
@@ -22,7 +23,6 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
       </body>
-      <GoogleAnalytics gaId="G-B4F3FMW431" strategy="afterInteractive" />
     </html>
   </ClerkProvider>
   )
