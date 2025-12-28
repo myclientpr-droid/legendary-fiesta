@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
+import FormatedText from "@/components/shared/FormatedText";
+
 
 export default async function ProgramDetailPage({ params }) {
   const { slug } = await params;
@@ -43,9 +45,9 @@ export default async function ProgramDetailPage({ params }) {
     </h1>
 
     {/* Short Description */}
-    <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-      {program.shortDescription}
-    </p>
+    <div className="text-lg text-gray-700 mb-10 leading-relaxed">
+      <FormatedText text={program.shortDescription}/>
+    </div>
 
     {/* Details Section */}
     {program.description && (
@@ -53,7 +55,7 @@ export default async function ProgramDetailPage({ params }) {
         <h2 className="text-xl font-semibold mb-4 text-gray-800">
           What This Program Includes
         </h2>
-        <p className="text-gray-700 leading-relaxed">{program.description}</p>
+        <div className="text-gray-700 leading-relaxed"><FormatedText text={program.description}/></div>
       </div>
     )}
 

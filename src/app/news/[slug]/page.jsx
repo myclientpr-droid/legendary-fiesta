@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import FormatedText from "@/components/shared/FormatedText";
 //import { auth } from "@clerk/nextjs/server";
 
 export default async function NewsDetailPage({ params }) {
@@ -58,13 +59,13 @@ export default async function NewsDetailPage({ params }) {
             </h1>
 
             {/* Excerpt */}
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              {news.excerpt}
-            </p>
+            <div className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <FormatedText text={news.excerpt}/>
+            </div>
 
             {/* Full Content */}
-            <div className="prose max-w-none">
-              <p className="text-gray-700">{news.content}</p>
+            <div className="prose max-w-none text-gray-700">
+              <FormatedText text={news.content}/>
             </div>
           </div>
         </div>
