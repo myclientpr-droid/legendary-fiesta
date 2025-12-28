@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
       </body>
-      {typeof window !== undefined && <GoogleAnalytics gaId="G-B4F3FMW431" strategy="afterInteractive" />}
+      <GoogleAnalytics gaId="G-B4F3FMW431" strategy="afterInteractive" />
     </html>
   </ClerkProvider>
   )
