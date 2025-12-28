@@ -1,4 +1,6 @@
+'use client'
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -63,6 +65,88 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+        <div className="py-10 text-center max-w-3xl mx-auto">
+  <h1 className="pb-4">Collaborate with Us</h1>
+
+  <p className="text-gray-800 bg-primary-100 rounded-lg shadow-[-4px_3px_2px_#60A3B2] text-justify p-6 leading-relaxed mb-8">
+    We believe real and lasting change happens through collaboration. Aurbina
+    Scholars Hub partners with NGOs, educators, youth groups, community leaders,
+    and mission-aligned organizations to expand access to education, protection,
+    and empowerment. Through partnerships, we co-create impactful programs,
+    exchange knowledge, and reach underserved refugee children and communities.
+    Together, we can build sustainable solutions that create long-term impact.
+  </p>
+
+  {/* CTA buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    
+    {/* Organization Collaboration */}
+    <button
+      onClick={() => {
+        const subject = encodeURIComponent("Organization Collaboration Proposal");
+        const body = encodeURIComponent(
+          `Hello Aurbina Scholars Hub Team,\n\nWe represent an organization interested in collaborating with Aurbina Scholars Hub on education, protection, or community initiatives.\n\nPlease let us know the next steps to explore a potential partnership.\n\nOrganization Name:\nFocus Area:\nContact Person:\n\nThank you.`
+        );
+        window.location.href = `mailto:ashmrk262@gmail.com?subject=${subject}&body=${body}`;
+      }}
+      className="btn-primary w-full sm:w-auto"
+    >
+      Partner as an Organization
+    </button>
+
+    {/* Individual Collaborator */}
+    <button
+      onClick={() => {
+        const subject = encodeURIComponent("Individual Collaboration Interest");
+        const body = encodeURIComponent(
+          `Hello Aurbina Scholars Hub Team,\n\nI am interested in collaborating with Aurbina Scholars Hub as an individual contributor.\n\nSkills / Expertise:\nAvailability:\nAreas of Interest:\n\nThank you.`
+        );
+        window.location.href = `mailto:ashmrk262@gmail.com?subject=${subject}&body=${body}`;
+      }}
+      className="btn-secondary w-full sm:w-auto"
+    >
+      Join as a Collaborator
+    </button>
+  </div>
+</div>
+<div className="py-10 text-center">
+  <h1 className="pb-4">Our Collaborators</h1>
+
+  <p className="text-gray-700 max-w-3xl mx-auto mb-8 text-justify indent-5">
+    We are grateful to work alongside dedicated individuals, organizations, and community groups
+    who believe in the power of education and collective action. Their support, expertise, and
+    commitment help us expand our reach and create lasting impact for learners and communities.
+  </p>
+
+  {/* Collaborators Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {/* Card */}
+    <div className="bg-zinc-100 rounded-xl shadow-md p-5 hover:shadow-lg transition">
+      <div className="w-24 h-24 flex items-center justify-center mb-3 bg-zinc-50 rounded-full mx-auto">
+        <Image src="/yes-logo.png" alt="logo"  className='w-full h-ful rounded-full' width={20} height={20}/>
+      </div>
+        <span className="text-xl font-semibold text-primary">
+          Youth Empowerment Support (YES)
+        </span>
+    </div>
+    <div className="bg-zinc-100 rounded-xl shadow-md p-5 hover:shadow-lg transition">
+      <div className="w-24 h-24 flex items-center justify-center mb-3 bg-zinc-50 rounded-full mx-auto">
+        <a href='https://mbsi.vercel.app' target="_blank"><Image src="/mbs-logo.jpg" alt="logo" className='w-full h-ful rounded-full' width={20} height={20}/></a>
+      </div>
+        <span className="text-xl font-semibold text-primary">
+          Myanmar Book Space (MBS)
+        </span>
+    </div>
+  </div>
+
+  {/* Call to action */}
+  <p className="mt-8 text-gray-700">
+    Interested in becoming a collaborator?  
+    <span className="font-semibold text-primary ml-1">
+      Let’s work together to create impact.
+    </span>
+  </p>
+</div>
       </div>
     </div>
   )

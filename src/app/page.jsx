@@ -74,6 +74,22 @@ const latestNews = news;
           </div>
         </div>
       </section>
+      <div className="py-10 px-5 text-center bg-primary-50 rounded-xl">
+  <h2 className="pb-4">Learning Resources</h2>
+
+  <p className="text-gray-700 max-w-3xl mx-auto mb-6 text-justify">
+    Through our collaboration with <span className="font-semibold">Myanmar Books Store (MBS)</span>,
+    Aurbina Scholars Hub provides free and accessible textbooks, learning materials,
+    and reading resources for students, teachers, and lifelong learners.
+  </p>
+
+  <a
+    href="https://mbsi.vercel.app"
+    target="_blank"
+    className="btn-primary inline-block">
+    Explore Learning Resources
+  </a>
+</div>
 
       {/* Impact Statistics */}
       {/*<section className="section-padding">
@@ -93,7 +109,6 @@ const latestNews = news;
           </div>
         </div>
       </section>*/}
-
       <CallToAction />
     </>
   )

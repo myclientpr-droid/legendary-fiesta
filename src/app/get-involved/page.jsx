@@ -599,6 +599,11 @@ export default function GetInvolvedPage() {
               </Link>
             </div>
           </div>
+            
+          <div className='py-8 text-center'>
+            <p className="text-gray-500 text-center pb-4">For Daily Updates, Join our whatsapp channel</p>
+                <Link href='https://whatsapp.com/channel/0029Vb2anrRADTOKlKcnXt3L' className="btn-primary w-full sm:w-auto mt-8">Join our WhatsApp Chennal</Link>
+          </div>
         </div>
       </div>
     </div>
