@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-
+/ClientManul.md
 # next.js
 /.next/
 /out/

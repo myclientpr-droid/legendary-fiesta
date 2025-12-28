@@ -11,7 +11,7 @@ export default function FormatedText({ text }) {
         return (
           <span
             key={partIndex}
-            className="inline rounded-sm bg-blue-200 px-0.5 tracking-wider py-0.5 text-sm md:text-md font-bold text-zinc-900"
+            className="inline rounded-sm px-0.5 tracking-wider py-0.5 text-md md:text-lg font-bold text-zinc-900"
           >
             {content}
           </span>
