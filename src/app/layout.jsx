@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs'
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from "next/script";
 
 export const metadata = {
   title: 'Aurbina Scholars Hub - Making a Difference',
@@ -13,8 +13,21 @@ export default function RootLayout({ children }) {
   return (
   <ClerkProvider>
     <html lang="en">
+      <head>
+         <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B4F3FMW431"
+      />
+    <Script id="google-analytics" strategy="afterInteractive">
+      {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B4F3FMW431');
+      `}
+    </Script>
+      </head>
       <body>
-      <GoogleAnalytics gaId="G-B4F3FMW431"/>
         <Navbar />
         <div className="flex flex-col min-h-screen">
           <main className="flex-grow mt-[3.3rem]">
