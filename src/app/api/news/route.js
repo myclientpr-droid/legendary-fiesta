@@ -8,8 +8,15 @@ import { isAdmin } from "@/lib/config/isAdmin";
 export const GET = async (req) => {
   try {
     await connectDB();
-    const data = await News.find({status: "published"});
-    return NextResponse.json({success: true, news: data}, {status: 200});
+    
+    let news;
+    
+    if(await isAdmin()) {
+      news = await News.find().sort({updatedAt: -1});
+    } else {
+    news = await News.find({status: "published"}).sort({updatedAt: -1});
+    }
+    return NextResponse.json({success: true, news}, {status: 200});
   } catch (e) {
   return NextResponse.json({success: false, message: e.message}, {status:500});
   }
@@ -18,7 +25,8 @@ export const GET = async (req) => {
 export const POST = async (req) => {
   try {
     if(!(await isAdmin())) {
-      return NextResponse.json({success: false, message:"Unauthorized"}, {status: 403});
+      
+      return NextResponse.json({success: false, message:"Unauthorized request!"}, {status: 403});
     }
     await connectDB();
     const formData = await req.formData();
@@ -62,6 +70,7 @@ export const POST = async (req) => {
     await news.save();
     return NextResponse.json({success: true, message: "News article saved successfully"}, {status: 201})
   } catch (e) {
+    console.log(e)
     return NextResponse.json({success: false, message: e.message}, {status: 500});
   }
-}
+};

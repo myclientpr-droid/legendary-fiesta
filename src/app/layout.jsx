@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   <ClerkProvider>
     <html lang="en">
       <head>
-         <Script
+         {/*<Script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-QGH2NVQ280"
       />
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       gtag('js', new Date());
       gtag('config', 'G-QGH2NVQ280');
       `}
-    </Script>
+    </Script>*/}
       </head>
       <body>
         <Navbar />

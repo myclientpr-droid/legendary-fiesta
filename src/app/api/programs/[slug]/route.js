@@ -28,4 +28,35 @@ export const DELETE = async (req, {params}) => {
   } catch (e) {
     return NextResponse.json({success: false, message: e.message}, {status: 500});
   }
-}
+};
+
+export const PUT = async (req, {params}) => {
+  if(!(await isAdmin())) return NextResponse.json({success:false, message: "Unauthorized request!"}, {status: 403});
+  try {
+    await connectDB();
+    const { slug } = await params;
+    const body = await req.json()
+    console.log(body);
+    const { title, shortDescription, description, category, status } = body;
+    if(!title || !shortDescription || !description || !category || !status) {
+      return NextResponse.json({success: false, message: "All fields are required"});
+    }
+    const updatedProgram = await Programs.findOneAndUpdate(
+      { slug },
+      {
+        title, 
+        shortDescription,
+        description, 
+        category,
+        status
+      },
+      {new: true});
+    if(!updatedProgram) {
+      return NextResponse.json({success: false, message:"Failed to update program"}, {status: 404});
+    }
+    return NextResponse.json({success: true, message:"Program updated successfully", data: updatedProgram}, {status: 201});
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json({success: false, message: "Internal server error!"}, {status: 500});
+  }
+}  

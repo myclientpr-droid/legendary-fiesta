@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import News from "@/lib/models/NewsModel";
 import { isAdmin } from "@/lib/config/isAdmin";
 
-
 export const GET = async (req, {params}) => {
   const { slug } = await params;
   try {
@@ -29,3 +28,36 @@ export const DELETE = async (req, {params}) => {
     return NextResponse.json({success: false, message: e.message}, {status: 500});
   }
 }
+
+
+export const PUT = async (req, {params}) => {
+  
+  if(!(await isAdmin())) {
+    return NextResponse.json({success: false, message:"Unauthorized request!"}, {status: 403});
+  }
+  try {
+    const { slug } = await params; 
+    await connectDB();
+    const body = await req.json();
+    const { title, excerpt, content, category, status } = body;
+    
+    if(!title || !excerpt || !content || !category || !status) {
+      return NextResponse.json({success: false, message: "All fields are rquired"});
+    }
+    const updatedNews = await News.findOneAndUpdate(
+      {slug},
+      {
+      title,
+      excerpt,
+      content,
+      category,
+      status
+    }, {new: true});
+    if(!updatedNews) {
+      return NextResponse.json({success: false, message: "Failed to update article!"}, {status: 404});
+    }
+    return NextResponse.json({success: true, message: "Article updated successfully!", data:updatedNews}, {status: 201});
+  } catch (e) {
+    return NextResponse.json({success: false, message:e.message}, {status: 500});
+  }
+} 

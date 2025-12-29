@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",
+    "@heroui/modal": "^2.2.26",
+    "@heroui/react": "^2.8.7",
     "@next/third-parties": "15.2.4",
     "autoprefixer": "^10.4.0",
     "axios": "^1.13.2",

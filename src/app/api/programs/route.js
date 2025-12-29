@@ -7,7 +7,14 @@ import { isAdmin } from "@/lib/config/isAdmin";
 export const GET = async (req) => {
   try {
     await connectDB();
-    const data = await Programs.find({status: "published"});
+    
+    let data;
+    
+    if(await isAdmin()) {
+      data = await Programs.find().sort({updatedAt: -1});
+    } else {
+      data = await Programs.find({status: "published"}).sort({updatedAt: -1});
+    }
     return NextResponse.json({success: true, data}, {status: 200});
   } catch (e) {
   return NextResponse.json({success: false, message: e.message}, {status:500});
