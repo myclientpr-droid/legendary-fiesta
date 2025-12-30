@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
   <ClerkProvider>
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="As_0-OvaL6rKKuLASGINga8iryZVNpmIPIppmQjC_ZQ" />
          <Script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-QGH2NVQ280"
@@ -42,7 +43,7 @@ export default function RootLayout({ children }) {
       gtag('config', 'G-QGH2NVQ280');
       `}
     </Script>
-    <meta name="google-site-verification" content="HHEUeoU41cwIxQKZGJ_siRAyE6uPZ6J905DwzDN0ZMY" />
+  
       </head>
       <body>
         <Navbar />
