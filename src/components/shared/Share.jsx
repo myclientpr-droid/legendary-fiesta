@@ -10,7 +10,7 @@ const Share = () => {
       navigator.share({
         title: "Aurbina Scholars Hub",
         text: `Discover Aurbina Scholars Hub — a free learning platform dedicated to education, knowledge sharing, and community growth.`, 
-        url: "Visit: https://ashedui.vercel.app",
+        url: "https://ashedui.vercel.app",
       })
         .then(() => alert("Shared successfully!"))
         .catch((error) => alert("Failed to share!"));
