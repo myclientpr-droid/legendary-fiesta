@@ -9,13 +9,13 @@ const CallToAction = () => {
           Your support can help transform lives and create lasting change in communities around the world.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <Link href="/donate" className="btn-primary bg-white text-primary-700 hover:bg-gray-100">
+          <Link href="/donate" className="btn-primary bg-white text-primary-700 hover:bg-gray-100 w-full">
             Make a Donation
           </Link>
-          <Link href="/get-involved" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700">
+          <Link href="/get-involved" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700 w-full">
             Volunteer Now
           </Link>
-          <Link href="/contact" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700">
+          <Link href="/contact" className="btn-secondary bg-transparent border-2 border-white hover:bg-white hover:text-primary-700 w-full">
             Contact Us
           </Link>
         </div>

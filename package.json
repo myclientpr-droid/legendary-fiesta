@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",
-    "@heroui/modal": "^2.2.26",
-    "@heroui/react": "^2.8.7",
     "@next/third-parties": "15.2.4",
     "autoprefixer": "^10.4.0",
     "axios": "^1.13.2",
@@ -29,6 +27,7 @@
     "@eslint/eslintrc": "^3",
     "eslint": "^9.36.0",
     "eslint-config-next": "15.2.3",
+    "next-sitemap": "^4.2.3",
     "tailwindcss": "^3.4.17"
   }
 }
