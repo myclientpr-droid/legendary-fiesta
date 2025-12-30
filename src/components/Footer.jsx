@@ -3,6 +3,7 @@ import Image from "next/image";
 import {Linkedin, Instagram, Facebook } from "lucide-react";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { AiFillTikTok } from "react-icons/ai";
+import Share from "@/components/shared/Share";
 
 
 const Footer = () => {
@@ -27,7 +28,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-800 text-white">
-      <div className="container-custom section-padding">
+      <div className="container-custom py-8">
+          <Share/>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Organization Info */}
           <div className="lg:col-span-1">
@@ -73,6 +75,7 @@ const Footer = () => {
           ))}
         </div>
 
+          
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Aurbina Scholars Hub. All rights reserved.</p>
           <p className="mt-2 text-sm">

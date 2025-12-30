@@ -7,6 +7,22 @@ import Script from "next/script";
 export const metadata = {
   title: 'Aurbina Scholars Hub - Making a Difference',
   description: 'Non-profit organization dedicated to creating positive change in our community.',
+  openGraph: {
+    title: "Aurbina Scholars Hub",
+    description: "Aurbina Scholars Hub empowers learners and educators through accessible education, research initiatives, and community-based knowledge sharing.",
+    url: "https://ashedui.vercel.app",
+    siteName: "Aurbina Scholars Hub",
+    images: [
+      {
+        url: "https://ashedui.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aurbina Scholars Hub - Making a Difference",
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -14,7 +30,7 @@ export default function RootLayout({ children }) {
   <ClerkProvider>
     <html lang="en">
       <head>
-         {/*<Script
+         <Script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-QGH2NVQ280"
       />
@@ -25,7 +41,7 @@ export default function RootLayout({ children }) {
       gtag('js', new Date());
       gtag('config', 'G-QGH2NVQ280');
       `}
-    </Script>*/}
+    </Script>
       </head>
       <body>
         <Navbar />

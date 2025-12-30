@@ -22,6 +22,32 @@ const DonatePage = () => {
         {/* Donation Form */}
         <div>
           <h2 className="text-xl font-semibold mb-6">Make a Donation</h2>
+          
+        {/*Donor Appreciation*/}
+        <div className="mt-6 mb-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+  <div className="flex items-start gap-4">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
+      🎁
+    </div>
+
+    <div>
+      <h2 className="text-xl font-semibold text-gray-900">
+        Monthly Donor Gift
+      </h2>
+
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+        Support our mission with a monthly donation, and as a token of gratitude,
+        you’ll receive an exclusive <span className="font-medium text-gray-800">
+        Aurbina Scholars Hub T-shirt
+        </span> as a gift.
+      </p>
+
+      <p className="mt-3 text-xs text-gray-500 italic">
+        *Available for active monthly donors only.
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* Amount Selection */}
           <div className="mb-8">
