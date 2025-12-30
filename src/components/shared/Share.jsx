@@ -38,10 +38,10 @@ const Share = () => {
 
   return (
     <div className="bg-gradient-to-r from-indigo-800/30 to-purple-800/30 rounded-2xl p-6 border border-white/10 backdrop-blur-sm mb-8">
-      <h4 className="text-lg font-semibold text-white mb-4 text-center flex items-center justify-center">
+      <h2 className="text-lg font-semibold text-white mb-4 text-center flex items-center justify-center">
         <FaShare className="mr-2 text-amber-400" />
         Share Our Platform
-      </h4>
+      </h2>
       
       <p className="text-indigo-200 text-center mb-6 text-sm">
         Support free and inclusive education—share this platform with your friends, students, and community.
