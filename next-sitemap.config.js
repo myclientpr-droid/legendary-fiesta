@@ -1,4 +1,4 @@
-// next-sitemap.js
+// next-sitemap.config.js
 module.exports = {
   siteUrl: 'https://ashedui.vercel.app',
   generateRobotsTxt: true,
