@@ -69,7 +69,6 @@ export const POST = async (req) => {
     await program.save();
     return NextResponse.json({success: true, message: "Program saved successfully"}, {status: 201});
   } catch (e) {
-    console.log("Error:", e)
     return NextResponse.json({success: false, message: e.message}, {status: 500});
   }
 }

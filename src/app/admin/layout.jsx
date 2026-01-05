@@ -3,6 +3,17 @@ import { redirect } from "next/navigation";
 import { ToastContainer } from 'react-toastify';
 
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS.split(",");
+
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
   
 export default async function AdminLayout({children}) {
    // Get the full user object with email

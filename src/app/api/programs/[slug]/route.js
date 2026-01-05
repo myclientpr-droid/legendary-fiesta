@@ -36,7 +36,6 @@ export const PUT = async (req, {params}) => {
     await connectDB();
     const { slug } = await params;
     const body = await req.json()
-    console.log(body);
     const { title, shortDescription, description, category, status } = body;
     if(!title || !shortDescription || !description || !category || !status) {
       return NextResponse.json({success: false, message: "All fields are required"});
@@ -56,7 +55,6 @@ export const PUT = async (req, {params}) => {
     }
     return NextResponse.json({success: true, message:"Program updated successfully", data: updatedProgram}, {status: 201});
   } catch (e) {
-    console.log(e);
     return NextResponse.json({success: false, message: "Internal server error!"}, {status: 500});
   }
 }  
