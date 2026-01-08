@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css';
-import { ClerkProvider } from '@clerk/nextjs'
+//import { ClerkProvider } from '@clerk/nextjs'
 import Script from "next/script";
 
 export const metadata = {
@@ -27,7 +27,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-  <ClerkProvider>
+  /*<ClerkProvider>*/
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="As_0-OvaL6rKKuLASGINga8iryZVNpmIPIppmQjC_ZQ" />
@@ -55,6 +55,6 @@ export default function RootLayout({ children }) {
         </div>
       </body>
     </html>
-  </ClerkProvider>
+  /*</ClerkProvider>*/
   )
 }

@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+//import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { ToastContainer } from 'react-toastify';
 
@@ -17,6 +17,7 @@ export const metadata = {
   
 export default async function AdminLayout({children}) {
    // Get the full user object with email
+   /*
   const user = await currentUser();
   const email = user?.emailAddresses[0]?.emailAddress
 
@@ -26,7 +27,7 @@ export default async function AdminLayout({children}) {
     Access denied. This section is restricted to authorized administrators only.
   </p>
 );
-  }
+  }*/
   
   return (
     <div>

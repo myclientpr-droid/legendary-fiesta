@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { currentUser } from "@clerk/nextjs/server";
+//import { currentUser } from "@clerk/nextjs/server";
 
 export default async function AdminHomePage() {
-  const user = await currentUser();
+  //const user = await currentUser();
   
   const adminRoutes = [
     {
@@ -29,7 +29,7 @@ export default async function AdminHomePage() {
 
   return (
     <section className="p-6">
-            <div className='py-2 px-4'>
+      {/*<div className='py-2 px-4'>
       <h1 className='py2'>Hi {user?.firstName && user?.lastName
       ? `${user.firstName} ${user.lastName}` 
       : user?.firstName
@@ -38,7 +38,7 @@ export default async function AdminHomePage() {
           ? user.lastName 
           : "Admin"} 👋</h1>
       <h3 className='pt-2'>Welcome backe to the Admin Dashboard</h3>
-      </div>
+      </div>*/}
       <p className="text-gray-600 px-4 mb-6">
         Manage all admin resources from one place
       </p>

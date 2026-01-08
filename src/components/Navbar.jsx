@@ -3,13 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from "next/image"
-import { 
-  SignedIn, 
-  SignedOut, 
-  SignInButton, 
-  SignUpButton, 
-  UserButton 
-} from '@clerk/nextjs'
+//import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from '@clerk/nextjs'
 import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
@@ -82,7 +76,7 @@ const Navbar = () => {
                     </button>
                   </SignUpButton>
                 </div>
-              </SignedOut>*/}
+              </SignedOut>
           <SignedIn>
                 <div className="flex items-center space-x-4">
                   <Link
@@ -100,6 +94,7 @@ const Navbar = () => {
                   />
                 </div>
               </SignedIn>
+        */}
         </div>
 
             <Link
@@ -129,7 +124,7 @@ const Navbar = () => {
                   Sign In
                 </button>
               </SignInButton>
-            </SignedOut>*/}
+            </SignedOut>
             <SignedIn>
               <UserButton 
                 appearance={{
@@ -139,6 +134,7 @@ const Navbar = () => {
                 }}
               />
             </SignedIn>
+            */}
             <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-1"
@@ -168,7 +164,7 @@ const Navbar = () => {
             
             {/* Auth Buttons - Mobile */}
             <div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
-              <SignedOut>
+              {/*<SignedOut>
                 <SignInButton mode="modal">
                   <button 
                     className="block w-full py-3 text-center text-gray-700 hover:text-primary-600 font-medium"
@@ -194,6 +190,7 @@ const Navbar = () => {
                   Dashboard
                 </Link>
               </SignedIn>
+            */}
             </div>
 
             <div className="px-4 pt-4">
