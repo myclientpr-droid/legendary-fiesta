@@ -2,12 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import FormatedText from "@/components/shared/FormatedText";
-//import { auth } from "@clerk/nextjs/server";
 
 export default async function NewsDetailPage({ params }) {
   const { slug } = await params;
-  /*const { userId } = await auth();
-  if(!userId) return null;*/
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news/${slug}`)
   const {news} = await res.json()
   if (!news) return null;

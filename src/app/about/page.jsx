@@ -25,7 +25,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="bg-gray-300 rounded-lg flex items-center justify-center">
-            <Image src="/ash-banner.png" alt="banner" width={850} height={300} className='rounded-lg'/>
+            <Image src="/og-image.jpg" alt="banner" width={850} height={300} className='rounded-lg'/>
           </div>
         </div>
 

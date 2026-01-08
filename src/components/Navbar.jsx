@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from "next/image"
-//import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from '@clerk/nextjs'
 import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
@@ -63,38 +62,6 @@ const Navbar = () => {
             
             {/* Auth Buttons - Desktop */}
         <div className="flex items-center space-x-4 ml-4">
-          {/*<SignedOut>
-                <div className="flex items-center space-x-4">
-                  <SignInButton mode="modal">
-                    <button className="text-gray-700 hover:text-primary-600 font-medium transition duration-300">
-                      Sign In
-                    </button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <button className="bg-[#6c47ff] text-white rounded-full font-medium px-5 py-2 hover:bg-[#5a3ce5] transition duration-300">
-                      Sign Up
-                    </button>
-                  </SignUpButton>
-                </div>
-              </SignedOut>
-          <SignedIn>
-                <div className="flex items-center space-x-4">
-                  <Link
-                    href="/admin"
-                    className="text-gray-700 hover:text-primary-600 font-medium transition duration-300"
-                  >
-                    Dashboard
-                  </Link>
-                  <UserButton 
-                    appearance={{
-                      elements: {
-                        userButtonAvatarBox: "w-8 h-8",
-                      }
-                    }}
-                  />
-                </div>
-              </SignedIn>
-        */}
         </div>
 
             <Link
@@ -118,23 +85,6 @@ const Navbar = () => {
               </Link>
             ))}
             
-            {/*<SignedOut>
-              <SignInButton mode="modal">
-                <button className="text-gray-700 hover:text-primary-600 font-medium text-sm">
-                  Sign In
-                </button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton 
-                appearance={{
-                  elements: {
-                    userButtonAvatarBox: "w-8 h-8",
-                  }
-                }}
-              />
-            </SignedIn>
-            */}
             <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-1"
@@ -164,33 +114,6 @@ const Navbar = () => {
             
             {/* Auth Buttons - Mobile */}
             <div className="px-4 pt-4 mt-4 border-t border-gray-100 space-y-3">
-              {/*<SignedOut>
-                <SignInButton mode="modal">
-                  <button 
-                    className="block w-full py-3 text-center text-gray-700 hover:text-primary-600 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign In
-                  </button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <button 
-                    className="block w-full bg-[#6c47ff] text-white rounded-full font-medium py-3 hover:bg-[#5a3ce5] transition duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign Up
-                  </button>
-                </SignUpButton>
-              </SignedOut>
-              <SignedIn>
-                <Link
-                  href="/admin"
-                  className="block py-3 px-4 text-gray-700 hover:text-primary-600 font-medium hover:bg-gray-50 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}>
-                  Dashboard
-                </Link>
-              </SignedIn>
-            */}
             </div>
 
             <div className="px-4 pt-4">
