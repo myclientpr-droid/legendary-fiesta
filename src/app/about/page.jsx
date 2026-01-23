@@ -14,6 +14,7 @@ export default function AboutPage() {
             <p className="text-lg text-gray-600 mb-4 indent-6 text-justify">
               Aurbina Scholars Hub is a youth-led, non-profit organization dedicated to supporting refugees from all backgrounds and ethnic communities. Our mission is to rebuild lives disrupted by displacement through education, empowerment, and community support.
             </p>
+            <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
             <p className="text-lg text-gray-600 mb-4 indent-6 text-justify">
               We work to create inclusive and safe learning spaces where refugee children and youth can access quality education, develop essential life skills, and regain hope for a better future. By addressing gaps in opportunity, protection, and access to resources, we aim to equip individuals with the knowledge and confidence needed to become self-reliant and active contributors to society.
             </p>
@@ -44,7 +45,6 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-
         <div>
           <h2 className="text-center mb-12">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -76,7 +76,6 @@ export default function AboutPage() {
     exchange knowledge, and reach underserved refugee children and communities.
     Together, we can build sustainable solutions that create long-term impact.
   </p>
-
   {/* CTA buttons */}
   <div className="flex flex-col sm:flex-row gap-4 justify-center">
     
@@ -117,7 +116,6 @@ export default function AboutPage() {
     who believe in the power of education and collective action. Their support, expertise, and
     commitment help us expand our reach and create lasting impact for learners and communities.
   </p>
-
   {/* Collaborators Grid */}
   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {/* Card */}

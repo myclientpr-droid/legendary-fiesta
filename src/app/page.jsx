@@ -26,7 +26,7 @@ const latestNews = news;
   return (
     <>
       <Hero />
-      
+      <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
       {/* Featured Programs */}
       <section className="section-padding">
         <div className="container-custom">
@@ -90,6 +90,11 @@ const latestNews = news;
     Explore Learning Resources
   </a>
 </div>
+        <div className="text-center my-12">
+            <a href="https://www.effectivegatecpm.com/f4522us1j?key=5b439670b0055aac9e0c4202e4126651" className="btn-primary">
+              Support us
+            </a>
+        </div>
 
       {/* Impact Statistics */}
       {/*<section className="section-padding">
