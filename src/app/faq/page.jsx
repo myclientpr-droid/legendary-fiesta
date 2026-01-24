@@ -95,8 +95,6 @@ export default function FAQPage() {
             Find answers to common questions about Aurbina Scholars Hub programs, applications, and requirements.
           </p>
         </div>
-        <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
-
         {/* Search Bar */}
         <div className="mb-12 max-w-2xl mx-auto">
           <div className="relative">

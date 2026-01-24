@@ -34,7 +34,6 @@ export default function PrivacyPage() {
                 <li>Contact us through forms or email</li>
                 <li>Participate in surveys or research</li>
               </ul>
-              <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
               
               <h3 className="text-xl font-semibold mb-3 mt-6">Types of Information Collected</h3>
               <ul className="list-disc pl-6 mt-2 space-y-2">

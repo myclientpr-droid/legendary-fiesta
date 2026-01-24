@@ -20,8 +20,6 @@ export default async function NewsDetailPage({ params }) {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
-        <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
-
         {/* Article Card */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Image */}

@@ -17,8 +17,6 @@ const DonatePage = () => {
       <p className="text-gray-600 mb-10">
         Your generous donation helps us continue our work in communities around the world.
       </p>
-      <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Donation Form */}
         <div>

@@ -12,7 +12,6 @@ export default function TermsPage() {
             <p>Last Updated: {lastUpdated}</p>
           </div>
         </div>
-        <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
 
         <div className="prose prose-lg max-w-none">
           <div className="mb-8 p-6 bg-gray-50 rounded-lg">

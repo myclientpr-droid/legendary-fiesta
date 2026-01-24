@@ -22,7 +22,6 @@ export default async function ProgramDetailPage({ params }) {
     >
       ← Back to Programs
     </Link>
-    <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
 
     {/* Program Image */}
     <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden mb-8 shadow-lg">

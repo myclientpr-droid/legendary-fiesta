@@ -26,7 +26,6 @@ const latestNews = news;
   return (
     <>
       <Hero />
-      <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
       {/* Featured Programs */}
       <section className="section-padding">
         <div className="container-custom">
@@ -97,7 +96,7 @@ const latestNews = news;
         </div>
 
       {/* Impact Statistics */}
-      {/*<section className="section-padding">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -113,7 +112,7 @@ const latestNews = news;
             ))}
           </div>
         </div>
-      </section>*/}
+      </section>
       <CallToAction />
     </>
   )

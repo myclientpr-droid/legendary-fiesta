@@ -18,7 +18,6 @@ export default async function NewsPage() {
             Stay informed about our latest announcements, scholarship programs, success stories, and events at Aurbina Scholars Hub.
           </p>
         </div>
-        <div id="container-09d618d3a8b88d28db262ff3ab0bd4da"></div>
 
         {/* News Grid */}
         <div>
