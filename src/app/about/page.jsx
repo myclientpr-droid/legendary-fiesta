@@ -45,7 +45,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div>
+        {/*<div>
           <h2 className="text-center mb-12">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -64,7 +64,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </div>*/}
         <div className="py-10 text-center max-w-3xl mx-auto">
   <h1 className="pb-4">Collaborate with Us</h1>
 
