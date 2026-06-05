@@ -73,7 +73,11 @@ export default async function ProgramDetailPage({ params }) {
 
     {/* Short Description */}
     <div className="text-lg text-gray-700 mb-10 leading-relaxed">
-      <FormatedText text={program.shortDescription}/>
+      {/<[a-z][\s\S]*>/i.test(program.shortDescription) ? (
+        <div dangerouslySetInnerHTML={{ __html: program.shortDescription }} />
+      ) : (
+        <FormatedText text={program.shortDescription}/>
+      )}
     </div>
 
     {/* Details Section */}
@@ -82,7 +86,13 @@ export default async function ProgramDetailPage({ params }) {
         <h2 className="text-xl font-semibold mb-4 text-gray-800">
           What This Program Includes
         </h2>
-        <div className="text-gray-700 leading-relaxed"><FormatedText text={program.description}/></div>
+        <div className="text-gray-700 leading-relaxed program-news">
+          {/<[a-z][\s\S]*>/i.test(program.description) ? (
+            <div dangerouslySetInnerHTML={{ __html: program.description }} />
+          ) : (
+            <FormatedText text={program.description}/>
+          )}
+        </div>
       </div>
     )}
 

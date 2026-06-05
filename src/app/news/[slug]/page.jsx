@@ -115,12 +115,20 @@ export default async function NewsDetailPage({ params }) {
 
             {/* Excerpt */}
             <div className="text-lg text-gray-600 mb-6 leading-relaxed">
-              <FormatedText text={news.excerpt}/>
+              {/<[a-z][\s\S]*>/i.test(news.excerpt) ? (
+                <div dangerouslySetInnerHTML={{ __html: news.excerpt }} />
+              ) : (
+                <FormatedText text={news.excerpt}/>
+              )}
             </div>
 
             {/* Full Content */}
             <div className="prose max-w-none text-gray-700">
-              <FormatedText text={news.content}/>
+              {/<[a-z][\s\S]*>/i.test(news.content) ? (
+                <div dangerouslySetInnerHTML={{ __html: news.content }} />
+              ) : (
+                <FormatedText text={news.content}/>
+              )}
             </div>
           </div>
         </div>

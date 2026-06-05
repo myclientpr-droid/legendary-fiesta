@@ -56,3 +56,66 @@
   transition;
 }
 
+
+.program-news {
+  line-height: 1.7;
+  font-size: 16px;
+  color: #374151;
+}
+
+/* Paragraphs */
+.program-news p {
+  margin-bottom: 12px;
+}
+
+/* Headings */
+.program-news h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0 12px;
+}
+
+.program-news h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 18px 0 10px;
+}
+
+.program-news h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 16px 0 8px;
+}
+
+/* Lists */
+.program-news ul,
+.program-news ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.program-news li {
+  margin-bottom: 6px;
+}
+
+/* Images */
+.program-news img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+/* Links */
+.program-news a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Blockquotes */
+.program-news blockquote {
+  border-left: 4px solid #d1d5db;
+  padding-left: 12px;
+  color: #6b7280;
+  margin: 12px 0;
+}

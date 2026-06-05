@@ -55,7 +55,11 @@ const ProgramCard = ({ program }) => {
         
         {/* Short description */}
         <div className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-          <FormatedText text={truncated(program.shortDescription)}/>
+          {/<[a-z][\s\S]*>/i.test(program.shortDescription) ? (
+        <div dangerouslySetInnerHTML={{ __html: truncated(program.shortDescription) }} />
+      ) : (
+        <FormatedText text={truncated(program.shortDescription)}/>
+      )}
         </div>
         
         {/* CTA */}

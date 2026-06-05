@@ -52,7 +52,11 @@ const NewsCard = ({ news }) => {
 
         {/* Excerpt */}
         <div className="text-gray-600 mb-4 line-clamp-3">
-          <FormatedText text={news.excerpt} />
+          {/<[a-z][\s\S]*>/i.test(news.excerpt) ? (
+            <div dangerouslySetInnerHTML={{ __html: news.excerpt }} />
+          ) : (
+            <FormatedText text={news.excerpt}/>
+          )}
         </div>
 
         {/* CTA */}
