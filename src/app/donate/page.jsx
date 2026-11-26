@@ -2,31 +2,55 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import ewallet from '@/data/eWallet.jpg';
+import PageHeader from '@/components/PageHeader'
+import { DONATION, ORGANIZATION } from '@/lib/config/site'
+import ewallet from '@/data/eWallet.jpeg'
+import duitNow from '@/data/quitnow.jpeg'
 
 const donationAmounts = [25, 50, 100, 250, 500]
+
+// QR slips handed out by Touch 'n Go and DuitNow; the same two images are the
+// only place the account details are published.
+const DONATION_METHODS = [
+  {
+    name: "Touch 'n Go eWallet",
+    image: ewallet,
+    width: 698,
+    height: 1080,
+    note: 'Scan with the Touch \'n Go eWallet app',
+  },
+  {
+    name: 'DuitNow QR',
+    image: duitNow,
+    width: 1018,
+    height: 1280,
+    note: 'Accepted by participating banks and e-wallets',
+  },
+]
 
 const DonatePage = () => {
   const [amount, setAmount] = useState(100);
   const [frequency, setFrequency] = useState('once');
-  const [showBank, setShowBank] = useState(false);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-4">Support Our Mission</h1>
-      <p className="text-gray-600 mb-10">
-        Your generous donation helps us continue our work in communities around the world.
-      </p>
+    <>
+      <PageHeader
+        eyebrow="Make a difference"
+        title="Support Our Mission"
+        description="Your generous donation helps us continue our work in communities around the world."
+      />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="section-padding">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {/* Donation Form */}
-        <div>
+        <div className="glass p-6 sm:p-8">
           <h2 className="text-xl font-semibold mb-6">Make a Donation</h2>
           
         {/*Donor Appreciation*/}
-        <div className="mt-6 mb-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="mt-6 mb-6 rounded-xl border border-white/60 bg-white/60 p-5 backdrop-blur">
   <div className="flex items-start gap-4">
-    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-xl text-primary-700">
       🎁
     </div>
 
@@ -58,10 +82,10 @@ const DonatePage = () => {
                 <button
                   key={donationAmount}
                   onClick={() => setAmount(donationAmount)}
-                  className={`py-3 rounded-lg border-2 font-medium transition ${
+                  className={`rounded-xl border-2 py-3 font-medium transition ${
                     amount === donationAmount
-                      ? 'border-primary-600 bg-primary-50 text-primary-700'
-                      : 'border-gray-300 hover:border-primary-500'
+                      ? 'border-primary-600 bg-primary-50 text-primary-700 shadow-sm'
+                      : 'border-slate-200 bg-white/60 text-slate-700 hover:border-primary-300'
                   }`}
                 >
                   RM{donationAmount}
@@ -74,7 +98,7 @@ const DonatePage = () => {
                 </label>
 
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
                     RM
                   </span>
                   <input
@@ -82,7 +106,7 @@ const DonatePage = () => {
                     min="1"
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
-                    className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500"
+                    className="input-field pl-10"
                   />
                 </div>
               </div>
@@ -98,10 +122,10 @@ const DonatePage = () => {
                 <button
                   key={item}
                   onClick={() => setFrequency(item)}
-                  className={`py-3 rounded-lg border-2 font-medium capitalize ${
+                  className={`rounded-xl border-2 py-3 font-medium capitalize transition ${
                     frequency === item
-                      ? 'border-primary-600 bg-primary-50 text-primary-700'
-                      : 'border-gray-300 hover:border-primary-500'
+                      ? 'border-primary-600 bg-primary-50 text-primary-700 shadow-sm'
+                      : 'border-slate-200 bg-white/60 text-slate-700 hover:border-primary-300'
                   }`}
                 >
                   {item}
@@ -111,7 +135,7 @@ const DonatePage = () => {
           </div>
 
           {/* Summary */}
-          <div className="bg-gray-50 p-6 rounded-lg mb-8">
+          <div className="mb-8 rounded-xl border border-white/60 bg-white/60 p-5 backdrop-blur">
             <div className="flex justify-between mb-2">
               <span>Donation Amount</span>
               <span className="font-semibold">RM{amount}</span>
@@ -131,48 +155,23 @@ const DonatePage = () => {
           </div>
 
           {/* Button */}
-          {/*<button
-            onClick={() => setShowBank(true)}
-            className="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-lg text-lg font-medium"
-          >
-            Continue to Bank Transfer
-          </button>
-          */}
-          <a href="https://www.paypal.me/MohammedRofik218" target='_blank'
-            className="w-full bg-primary-600 block text-center hover:bg-primary-700 text-white py-3 rounded-lg text-lg font-medium mb-6">
+          <a href={DONATION.paypal} target="_blank" rel="noopener noreferrer"
+            className="btn-donate mb-6 w-full py-3 text-base">
             Continue to PayPal
           </a>
 
-          {/*<p className="text-xs text-gray-500 mt-4 text-center">
-            Donations via bank transfer are verified manually.
-          </p>*/}
-
-          {/* Bank Details */}
-          {showBank ? (
-            <div className="mt-8 border border-gray-200 rounded-lg p-6 bg-white">
-              <h3 className="text-lg font-semibold mb-4">
-                Bank Transfer Details
-              </h3>
-
-              <div className="space-y-2 text-sm">
-                <p><strong>Account Name:</strong> Community Support Foundation</p>
-                <p><strong>Bank Name:</strong> ABC Bank Ltd</p>
-                <p><strong>Account Number:</strong> 1234567890</p>
-                <p><strong>Branch:</strong> Dhaka Main Branch</p>
-                <p><strong>SWIFT Code:</strong> ABCDBDDH</p>
-              </div>
-
-              <p className="text-xs text-gray-500 mt-4">
-                Please include your name or email in the reference.
-                After payment, send the transaction ID to
-                <span className="font-medium"> ashmrk262@gmail.com</span>.
-              </p>
-            </div> ) : (<Image src={ewallet} alt='payment qr code' width={200} height={400}
-            className='w-full md:w-1/2 mx-auto rounded-lg border border-gray-200'/>)}
+          <p className="text-center text-sm text-slate-600">
+            Prefer a bank transfer or e-wallet? The DuitNow QR codes are in
+            {' '}
+            <a href="#donation-information" className="font-semibold text-primary-700 underline-offset-4 hover:underline">
+              Donation Information
+            </a>
+            {' '}below.
+          </p>
         </div>
 
         {/* Impact Section */}
-        <div>
+        <div className="glass p-6 sm:p-8">
           <h2 className="text-xl font-semibold mb-6">Your Impact</h2>
 
           <div className="space-y-4">
@@ -185,7 +184,7 @@ const DonatePage = () => {
             ].map((item) => (
               <div
                 key={item.amount}
-                className="flex items-center p-4 bg-white border rounded-lg"
+                className="flex items-center rounded-xl border border-white/60 bg-white/60 p-4 backdrop-blur"
               >
                 <div className="h-16 w-16 whitespace-nowrap rounded-full bg-primary-100 text-primary-700 flex items-center text-sm justify-center font-bold mr-4">
                   RM {" "} {item.amount}
@@ -195,8 +194,81 @@ const DonatePage = () => {
             ))}
           </div>
         </div>
+          </div>
+
+          {/* Donation Information */}
+          <div id="donation-information" className="glass mt-8 scroll-mt-24 p-6 sm:p-8">
+            <h2 className="text-2xl text-slate-900">Donation Information</h2>
+
+            <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
+              <p>
+                Aurbina Scholars Hub (ASH) is currently operating as a refugee-led grassroots
+                initiative and is not yet formally registered. Therefore, we are temporarily
+                receiving donations through a personal bank account or e-wallet designated for
+                ASH activities.
+              </p>
+              <p>
+                We maintain transparency regarding this arrangement, and all contributions are
+                intended to support our educational programmes and community initiatives.
+              </p>
+              <p>Thank you for your understanding, trust, and support.</p>
+            </div>
+
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {DONATION_METHODS.map((method) => (
+                <div
+                  key={method.name}
+                  className="rounded-2xl border border-white/60 bg-white/70 p-5 backdrop-blur"
+                >
+                  <h3 className="text-base font-semibold text-slate-900">{method.name}</h3>
+                  <p className="mt-1 text-xs text-slate-500">{method.note}</p>
+
+                  {/* Fixed-height frame keeps both QR slips the same size on the grid */}
+                  <div className="mt-4 flex h-72 items-center justify-center overflow-hidden rounded-xl bg-white p-3 ring-1 ring-slate-200">
+                    <Image
+                      src={method.image}
+                      alt={`${method.name} QR code for donating to ${ORGANIZATION.name}`}
+                      width={method.width}
+                      height={method.height}
+                      sizes="240px"
+                      className="h-full w-auto object-contain"
+                    />
+                  </div>
+
+                  <dl className="mt-4 space-y-2 text-sm">
+                    <div className="flex flex-wrap justify-between gap-x-4 gap-y-1">
+                      <dt className="text-slate-500">Account name</dt>
+                      <dd className="font-semibold text-slate-900">{DONATION.accountName}</dd>
+                    </div>
+                    <div className="flex flex-wrap justify-between gap-x-4 gap-y-1">
+                      <dt className="text-slate-500">DuitNow ID</dt>
+                      <dd className="font-semibold text-slate-900">{DONATION.duitNowId}</dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 text-sm text-slate-600">
+              After sending your donation, please share the transfer reference with us at
+              {' '}
+              <a
+                href={`mailto:${ORGANIZATION.emails[0]}`}
+                className="font-semibold break-words text-primary-700 underline-offset-4 hover:underline"
+              >
+                {ORGANIZATION.emails[0]}
+              </a>
+              {' '}so we can acknowledge your gift.
+            </p>
+
+            <div className="mt-8 border-t border-white/60 pt-6">
+              <p className="font-semibold text-slate-900">{ORGANIZATION.name} ({ORGANIZATION.shortName})</p>
+              <p className="mt-1 text-sm text-slate-600">{DONATION.tagline}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

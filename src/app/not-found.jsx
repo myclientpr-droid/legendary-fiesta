@@ -2,32 +2,23 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="min-h-[70vh] flex items-center justify-center px-4">
-      <div className="max-w-md text-center">
-        <p className="text-4xl font-semibold text-blue-600 mb-2 flex flex-row justify-center items-center gap-10">
-          404 ERROR <span>😭</span>
-        </p>
+    <section className="flex min-h-[70vh] items-center justify-center px-4 py-16">
+      <div className="glass w-full max-w-lg p-8 text-center sm:p-12">
+        <span className="badge">404 error</span>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
+        <h1 className="mt-6 mb-4 text-3xl text-slate-900 md:text-4xl">
           Page not found
         </h1>
 
-        <p className="text-gray-600 mb-6">
+        <p className="mb-8 text-slate-600">
           Sorry, the page you’re looking for doesn’t exist or may have been moved.
         </p>
 
-        <div className="flex items-center justify-center gap-4">
-          <Link
-            href="/"
-            className="inline-flex items-center rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition"
-          >
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link href="/" className="btn-primary w-full sm:w-auto">
             Go home
           </Link>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-md border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
-          >
+          <Link href="/contact" className="btn-secondary w-full sm:w-auto">
             Contact support
           </Link>
         </div>

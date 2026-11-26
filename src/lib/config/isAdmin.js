@@ -1,11 +1,9 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@/lib/config/auth";
 
+// The ADMIN_EMAILS allowlist is evaluated into session.user.isAdmin by the
+// NextAuth session callback, so every caller shares one source of truth.
 export const isAdmin = async () => {
-  const user = await currentUser();
-  if (!user) return false;
+  const session = await auth();
 
-  const email = user.emailAddresses[0]?.emailAddress;
-  const admins = process.env.ADMIN_EMAILS?.split(",") || [];
-
-  return admins.includes(email);
+  return !!session?.user?.isAdmin;
 };

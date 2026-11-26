@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import FormatedText from "@/components/shared/FormatedText";
+import RichText from "@/components/shared/RichText";
 
 
 export default async function ProgramDetailPage({ params }) {
@@ -12,50 +12,53 @@ export default async function ProgramDetailPage({ params }) {
   const program = data.data;
   
   return (
-    <div className="section-padding bg-gray-50 min-h-screen">
+    <div className="section-padding min-h-screen">
   <div className="container-custom max-w-5xl mx-auto">
 
     {/* Breadcrumb */}
     <Link
       href="/programs"
-      className="text-sm text-primary-600 hover:underline mb-6 inline-block"
+      className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 transition hover:text-primary-700"
     >
       ← Back to Programs
     </Link>
 
     {/* Program Image */}
-    <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden mb-8 shadow-lg">
+    <div className="relative mb-8 h-72 w-full overflow-hidden rounded-2xl bg-slate-100 shadow-glass ring-1 ring-white/60 md:h-96">
       <Image
         src={program.image}
         alt={program.title}
         fill
-        className="object-cover rounded-xl"
+        className="object-cover"
+        sizes="(max-width: 1024px) 100vw, 1024px"
         priority
       />
     </div>
 
     {/* Category */}
-    <span className="inline-block mb-4 text-sm font-semibold px-4 py-1 rounded-full bg-primary-100 text-primary-700">
+    <span className="badge mb-4">
       {program.category}
     </span>
 
     {/* Title */}
-    <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+    <h1 className="mb-6 text-3xl text-slate-900 md:text-4xl lg:text-5xl">
       {program.title}
     </h1>
 
     {/* Short Description */}
-    <div className="text-lg text-gray-700 mb-10 leading-relaxed">
-      <FormatedText text={program.shortDescription}/>
-    </div>
+    {program.shortDescription && (
+      <p className="mb-10 text-lg leading-relaxed text-slate-600">
+        {program.shortDescription}
+      </p>
+    )}
 
     {/* Details Section */}
     {program.description && (
-      <div className="bg-white rounded-xl p-6 shadow-md mb-12">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">
+      <div className="glass mb-12 p-6 sm:p-8">
+        <h2 className="mb-4 text-xl font-semibold text-slate-900">
           What This Program Includes
         </h2>
-        <div className="text-gray-700 leading-relaxed"><FormatedText text={program.description}/></div>
+        <RichText html={program.description} />
       </div>
     )}
 
@@ -63,13 +66,13 @@ export default async function ProgramDetailPage({ params }) {
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
       <Link
         href="/donate"
-        className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium text-center hover:bg-primary-700 transition"
+        className="btn-donate px-6 py-3 text-base"
       >
         Support This Program
       </Link>
       <Link
         href="/get-involved"
-        className="px-6 py-3 border border-primary-600 text-primary-600 rounded-lg font-medium text-center hover:bg-primary-50 transition"
+        className="btn-secondary px-6 py-3 text-base"
       >
         Volunteer With Us
       </Link>

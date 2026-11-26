@@ -6,22 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.36.5",
-    "@next/third-parties": "15.2.4",
+    "@next/third-parties": "^16.4.6",
+    "@tiptap/extension-placeholder": "^3.35.0",
+    "@tiptap/pm": "^3.35.0",
+    "@tiptap/react": "^3.35.0",
+    "@tiptap/starter-kit": "^3.35.0",
     "autoprefixer": "^10.4.0",
     "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
     "lucide-react": "^0.562.0",
     "mongoose": "^9.0.2",
-    "next": "15.5.9",
+    "next": "^16.4.6",
+    "next-auth": "^5.0.0-beta.32",
     "postcss": "^8.4.0",
     "react": "^19",
     "react-dom": "^19",
     "react-icons": "^5.5.0",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "sanitize-html": "^2.18.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

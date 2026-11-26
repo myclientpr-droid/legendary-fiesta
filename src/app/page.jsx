@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import Hero from '@/components/Hero'
 import CallToAction from '@/components/CallToAction'
 import ProgramCard from '@/components/ProgramCard'
@@ -30,85 +32,93 @@ const latestNews = news;
       {/* Featured Programs */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Our Programs</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We run various programs aimed at making a tangible difference in people's lives
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="badge">Our work</span>
+            <h2 className="mt-4 mb-4 text-slate-900">Our Programs</h2>
+            <p className="text-lg text-slate-600">
+              We run various programs aimed at making a tangible difference in people&apos;s lives
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {programs.map((program, idx) => (
               <ProgramCard key={idx} program={program} />
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <a href="/programs" className="btn-secondary">
+            <Link href="/programs" className="btn-secondary">
               View All Programs
-            </a>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Latest News */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Latest News & Updates</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="badge">Newsroom</span>
+            <h2 className="mt-4 mb-4 text-slate-900">Latest News &amp; Updates</h2>
+            <p className="text-lg text-slate-600">
               Stay updated with our latest activities and achievements
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {latestNews.map((news, idx) => (
               <NewsCard key={idx} news={news} />
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <a href="/news" className="btn-primary">
+            <Link href="/news" className="btn-primary">
               Read All News
-            </a>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
-      <div className="py-10 px-5 text-center bg-primary-50 rounded-xl">
-  <h2 className="pb-4">Learning Resources</h2>
 
-  <p className="text-gray-700 max-w-3xl mx-auto mb-6 text-justify">
-    Through our collaboration with <span className="font-semibold">Myanmar Books Space (MBS)</span>,
-    Aurbina Scholars Hub provides free and accessible textbooks, learning materials,
-    and reading resources for students, teachers, and lifelong learners.
-  </p>
-
-  <a
-    href="https://mbsi.vercel.app"
-    target="_blank"
-    className="btn-primary inline-block">
-    Explore Learning Resources
-  </a>
-</div>
-
-      {/* Impact Statistics */}
-      {/*<section className="section-padding">
+      {/* Learning Resources */}
+      <section className="pb-6">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: '5K+', label: 'Lives Impacted' },
-              { number: '50+', label: 'Volunteers' },
-              { number: '20+', label: 'Communities Served' },
-              { number: '3+', label: 'Years of Service' },
-            ].map((stat, index) => (
-              <div key={index} className="p-6">
-                <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+          <div className="glass relative overflow-hidden p-8 text-center sm:p-12">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-400/25 blur-3xl"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-sky-400/15 blur-3xl"
+            />
+
+            <div className="relative">
+              <span className="badge">Free resources</span>
+              <h2 className="mt-4 mb-4 text-slate-900">Learning Resources</h2>
+
+              <p className="mx-auto mb-8 max-w-3xl text-slate-600">
+                Through our collaboration with{' '}
+                <span className="font-semibold text-slate-900">Myanmar Books Space (MBS)</span>,
+                Aurbina Scholars Hub provides free and accessible textbooks, learning materials,
+                and reading resources for students, teachers, and lifelong learners.
+              </p>
+
+              <a
+                href="https://mbsi.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Explore Learning Resources
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
-      </section>*/}
+      </section>
+
       <CallToAction />
     </>
   )

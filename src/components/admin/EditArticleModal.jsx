@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import RichTextEditor from "./RichTextEditor";
 
 export default function EditArticleModal({
   isOpen,
@@ -58,7 +59,6 @@ export default function EditArticleModal({
     e.preventDefault();
     onSubmit(formData, article.slug, () => onOpenChange(false));
   };
-  console.log("formData:", formData);
 
   return (
     <div className="fixed top-[4rem] left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl flex items-center justify-center">
@@ -119,13 +119,11 @@ export default function EditArticleModal({
               <label className="block text-sm font-medium mb-1">
                 Content
               </label>
-              <textarea
-                name="content"
-                rows={6}
+              <RichTextEditor
+                key={article._id}
                 value={formData.content}
-                onChange={handleChange}
-                className="w-full rounded-md border px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
+                onChange={(content) => setFormData((prev) => ({ ...prev, content }))}
+                placeholder="Write the article body…"
               />
             </div>
 

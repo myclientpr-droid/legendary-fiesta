@@ -1,7 +1,8 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css';
-import { ClerkProvider } from '@clerk/nextjs'
+import 'react-toastify/dist/ReactToastify.css';
+import { SessionProvider } from 'next-auth/react'
 import Script from "next/script";
 
 export const metadata = {
@@ -27,8 +28,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-  <ClerkProvider>
-    <html lang="en">
+  <SessionProvider>
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <meta name="google-site-verification" content="As_0-OvaL6rKKuLASGINga8iryZVNpmIPIppmQjC_ZQ" />
          <Script
@@ -48,13 +49,13 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         <div className="flex flex-col min-h-screen">
-          <main className="flex-grow mt-[3.3rem]">
+          <main className="flex-grow">
             {children}
           </main>
           <Footer />
         </div>
       </body>
     </html>
-  </ClerkProvider>
+  </SessionProvider>
   )
 }

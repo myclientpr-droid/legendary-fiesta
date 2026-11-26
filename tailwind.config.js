@@ -8,18 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Royal indigo is the brand accent: calm on large surfaces, confident on CTAs.
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
+        // Slate carries all neutral text, borders and muted surfaces.
         secondary: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -31,7 +33,18 @@ module.exports = {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-        }
+        },
+        // Deep navy used for the header, hero and footer chrome.
+        ink: {
+          DEFAULT: '#0b1120',
+          800: '#111a2e',
+          900: '#0b1120',
+          950: '#070b16',
+        },
+      },
+      boxShadow: {
+        glass: '0 10px 40px -16px rgba(15, 23, 42, 0.18)',
+        lift: '0 28px 60px -28px rgba(49, 46, 129, 0.45)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

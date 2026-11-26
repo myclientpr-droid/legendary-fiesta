@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import PageHeader from '@/components/PageHeader'
+import { ORGANIZATION } from '@/lib/config/site'
 
 const volunteerRoles = [
   {
@@ -128,7 +130,7 @@ export default function GetInvolvedPage() {
     `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nRole: ${role}\nAvailability: ${availability}\nExperience: ${experience}\nMotivation: ${motivation}`
   );
 
-  window.location.href = `mailto:ashmrk262@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${ORGANIZATION.emails[0]}?subject=${subject}&body=${body}`;
 
   // Optionally reset form
   setVolunteerForm({
@@ -144,15 +146,15 @@ export default function GetInvolvedPage() {
 };
 
   return (
-    <div className="section-padding">
+    <>
+      <PageHeader
+        eyebrow="Join the movement"
+        title="Get Involved"
+        description="Join our mission to make higher education accessible to all. Whether you volunteer, partner with us, or spread the word, your contribution makes a difference."
+      />
+
+      <div className="section-padding">
       <div className="container-custom max-w-6xl">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="mb-6">Get Involved</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our mission to make higher education accessible to all. Whether you volunteer, partner with us, or spread the word, your contribution makes a difference.
-          </p>
-        </div>
 
         {/* Ways to Get Involved */}
         <div className="mb-20">
@@ -165,7 +167,7 @@ export default function GetInvolvedPage() {
                 <span className="text-2xl">🤝</span>
               </div>
               <h3 className="text-xl font-bold mb-4">Volunteer</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6">
                 Share your skills and time to support our scholars and programs
               </p>
               <ul className="text-left space-y-2 mb-8">
@@ -193,7 +195,7 @@ export default function GetInvolvedPage() {
                 <span className="text-2xl">🤝</span>
               </div>
               <h3 className="text-xl font-bold mb-4">Partner With Us</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6">
                 Collaborate with us as a corporate, university, or community partner
               </p>
               <ul className="text-left space-y-2 mb-8">
@@ -221,7 +223,7 @@ export default function GetInvolvedPage() {
                 <span className="text-2xl">📢</span>
               </div>
               <h3 className="text-xl font-bold mb-4">Become an Advocate</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6">
                 Help spread awareness about educational equity and our mission
               </p>
               <ul className="text-left space-y-2 mb-8">
@@ -249,7 +251,7 @@ export default function GetInvolvedPage() {
         <section id="volunteer" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Volunteer Opportunities</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-slate-600 max-w-3xl mx-auto">
               We offer various volunteer roles that match different skills, interests, and time commitments. Join our community of passionate individuals making a difference.
             </p>
           </div>
@@ -259,19 +261,19 @@ export default function GetInvolvedPage() {
             {volunteerRoles.map((role) => (
               <div key={role.id} className="card p-6">
                 <h3 className="text-xl font-bold mb-3">{role.title}</h3>
-                <p className="text-gray-600 mb-4">{role.description}</p>
+                <p className="text-slate-600 mb-4">{role.description}</p>
                 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center">
-                    <span className="text-gray-500 w-32">Time:</span>
+                    <span className="text-slate-500 w-32">Time:</span>
                     <span className="font-medium">{role.timeCommitment}</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-gray-500 w-32">Location:</span>
+                    <span className="text-slate-500 w-32">Location:</span>
                     <span className="font-medium">{role.location}</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-gray-500 w-32">Commitment:</span>
+                    <span className="text-slate-500 w-32">Commitment:</span>
                     <span className="font-medium">{role.commitment}</span>
                   </div>
                 </div>
@@ -296,7 +298,7 @@ export default function GetInvolvedPage() {
     const body = encodeURIComponent(
       `Hello,\n\nI am interested in applying for the role of "${role.title}".\n\nPlease let me know the next steps.\n\nThank you.`
     );
-    window.location.href = `mailto:ashmrk262@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${ORGANIZATION.emails[0]}?subject=${subject}&body=${body}`;
   }}
   className="btn-primary w-full"
 >
@@ -313,7 +315,7 @@ export default function GetInvolvedPage() {
             <form onSubmit={handleSubmitVolunteer}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     First Name *
                   </label>
                   <input
@@ -322,12 +324,12 @@ export default function GetInvolvedPage() {
                     value={volunteerForm.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Last Name *
                   </label>
                   <input
@@ -336,14 +338,14 @@ export default function GetInvolvedPage() {
                     value={volunteerForm.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -352,12 +354,12 @@ export default function GetInvolvedPage() {
                     value={volunteerForm.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -365,13 +367,13 @@ export default function GetInvolvedPage() {
                     name="phone"
                     value={volunteerForm.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Preferred Volunteer Role *
                 </label>
                 <select
@@ -379,7 +381,7 @@ export default function GetInvolvedPage() {
                   value={volunteerForm.role}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
                   <option value="">Select a role</option>
                   {volunteerRoles.map((role) => (
@@ -392,7 +394,7 @@ export default function GetInvolvedPage() {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Relevant Experience *
                 </label>
                 <textarea
@@ -402,12 +404,12 @@ export default function GetInvolvedPage() {
                   required
                   rows="3"
                   placeholder="Describe your relevant experience, skills, or background..."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 ></textarea>
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Weekly Availability *
                 </label>
                 <input
@@ -417,12 +419,12 @@ export default function GetInvolvedPage() {
                   onChange={handleInputChange}
                   required
                   placeholder="e.g., 5-10 hours/week, evenings only, weekends, etc."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
 
               <div className="mb-8">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
                   Why do you want to volunteer with Aurbina Scholars Hub? *
                 </label>
                 <textarea
@@ -432,7 +434,7 @@ export default function GetInvolvedPage() {
                   required
                   rows="4"
                   placeholder="Tell us what motivates you and why you'd be a good fit..."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 ></textarea>
               </div>
 
@@ -440,7 +442,7 @@ export default function GetInvolvedPage() {
                 Submit Application
               </button>
               
-              <p className="text-sm text-gray-500 mt-4 text-center">
+              <p className="text-sm text-slate-500 mt-4 text-center">
                 We'll contact you within 5-7 business days after reviewing your application.
               </p>
             </form>
@@ -451,7 +453,7 @@ export default function GetInvolvedPage() {
         <section id="partnership" className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Partnership Opportunities</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-slate-600 max-w-3xl mx-auto">
               Join forces with us to create greater impact. We collaborate with corporations, universities, and community organizations to expand educational opportunities.
             </p>
           </div>
@@ -460,7 +462,7 @@ export default function GetInvolvedPage() {
             {partnershipTypes.map((partnership, index) => (
               <div key={index} className="card p-8">
                 <h3 className="text-xl font-bold mb-4">{partnership.type}</h3>
-                <p className="text-gray-600 mb-6">{partnership.description}</p>
+                <p className="text-slate-600 mb-6">{partnership.description}</p>
                 
                 <h4 className="font-semibold mb-3">Benefits Include:</h4>
                 <ul className="space-y-2 mb-8">
@@ -482,25 +484,23 @@ export default function GetInvolvedPage() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-8 text-white">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-primary-700 via-primary-800 to-ink p-8 text-white shadow-lift">
+            <div aria-hidden="true" className="pointer-events-none absolute -top-20 -right-16 h-56 w-56 rounded-full bg-primary-400/30 blur-3xl" />
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-2xl font-bold mb-4">Corporate Matching Gifts</h3>
               <p className="mb-6 opacity-90">
                 Many companies match employee donations to educational nonprofits. Check if your employer has a matching gift program and double your impact!
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a
-                  href="/donate"
-                  className="bg-white text-primary-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
-                >
+                <Link href="/donate" className="btn-donate px-6 py-3 text-base">
                   Make a Donation
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/contact"
-                  className="bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-primary-700 transition duration-300"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-base font-semibold text-white backdrop-blur transition hover:bg-white/10"
                 >
                   Learn About Matching
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -510,7 +510,7 @@ export default function GetInvolvedPage() {
         <section id="advocate" className="mb-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Become an Advocate</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-slate-600 max-w-3xl mx-auto">
               You don't need to volunteer time or donate money to make a difference. Help us spread the word about educational equity.
             </p>
           </div>
@@ -518,7 +518,7 @@ export default function GetInvolvedPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="card p-8">
               <h3 className="text-xl font-bold mb-4">Social Media Toolkit</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6">
                 Download our social media toolkit with pre-written posts, graphics, and hashtags to share our mission with your network.
               </p>
               <div className="space-y-4 mb-8">
@@ -546,7 +546,7 @@ export default function GetInvolvedPage() {
 
             <div className="card p-8">
               <h3 className="text-xl font-bold mb-4">Host an Awareness Event</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6">
                 Organize a virtual or in-person event to raise awareness about educational equity and our scholarship programs.
               </p>
               <div className="space-y-4 mb-8">
@@ -578,10 +578,10 @@ export default function GetInvolvedPage() {
         </section>
 
         {/* FAQ Preview */}
-        <div className="mt-16 p-8 bg-gray-50 rounded-2xl">
+        <div className="mt-16 p-8 bg-white/50 rounded-2xl">
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Have Questions About Getting Involved?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
               Check our FAQ section or contact our volunteer coordinator for more information.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -601,11 +601,12 @@ export default function GetInvolvedPage() {
           </div>
             
           <div className='py-8 text-center'>
-            <p className="text-gray-500 text-center pb-4">For Daily Updates, Join our whatsapp channel</p>
-                <Link href='https://whatsapp.com/channel/0029Vb2anrRADTOKlKcnXt3L' className="btn-primary w-full sm:w-auto mt-8">Join our WhatsApp Chennal</Link>
+            <p className="text-center pb-4 text-slate-500">For daily updates, join our WhatsApp channel</p>
+                <Link href='https://whatsapp.com/channel/0029Vb2anrRADTOKlKcnXt3L' className="btn-primary w-full sm:w-auto mt-8">Join our WhatsApp Channel</Link>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

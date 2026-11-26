@@ -1,3 +1,7 @@
+import Link from "next/link"
+import PageHeader from "@/components/PageHeader"
+import { ORGANIZATION } from "@/lib/config/site"
+
 export default function FAQPage() {
   const faqCategories = [
     {
@@ -80,21 +84,22 @@ export default function FAQPage() {
         },
         {
           q: "What if I have technical issues with my application?",
-          a: "Contact our technical support team at techsupport@aurbinahub.org or call (555) 789-0123. For best results, use Chrome or Firefox browsers and submit applications well before deadlines."
+          a: `Contact our technical support team at ${ORGANIZATION.emails[0]} or call ${ORGANIZATION.phone}. For best results, use Chrome or Firefox browsers and submit applications well before deadlines.`
         }
       ]
     }
   ];
 
   return (
-    <div className="section-padding">
-      <div className="container-custom max-w-6xl">
-        <div className="text-center mb-12">
-          <h1 className="mb-4">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Find answers to common questions about Aurbina Scholars Hub programs, applications, and requirements.
-          </p>
-        </div>
+    <>
+      <PageHeader
+        eyebrow="Help centre"
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about Aurbina Scholars Hub programs, applications, and requirements."
+      />
+
+      <div className="section-padding">
+        <div className="container-custom max-w-6xl">
 
         {/* Search Bar */}
         <div className="mb-12 max-w-2xl mx-auto">
@@ -102,14 +107,17 @@ export default function FAQPage() {
             <input
               type="text"
               placeholder="Search FAQs..."
-              className="w-full px-6 py-4 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-lg"
+              className="input-field pl-12 py-3.5 text-base"
             />
-            <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400">
               🔍
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-2 text-center">
-            Can't find what you're looking for? <a href="/contact" className="text-primary-600 hover:underline">Contact us</a>
+          <p className="text-sm text-slate-500 mt-3 text-center">
+            Can&apos;t find what you&apos;re looking for?{' '}
+            <Link href="/contact" className="font-medium text-primary-600 hover:underline">
+              Contact us
+            </Link>
           </p>
         </div>
 
@@ -117,7 +125,7 @@ export default function FAQPage() {
         <div className="space-y-12">
           {faqCategories.map((category, index) => (
             <div key={index}>
-              <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">
+              <h2 className="mb-6 border-b border-white/70 pb-2 text-2xl text-slate-900">
                 {category.title}
               </h2>
               <div className="space-y-4">
@@ -125,13 +133,13 @@ export default function FAQPage() {
                   <div key={faqIndex} className="card">
                     <details className="group">
                       <summary className="flex justify-between items-center cursor-pointer list-none p-6">
-                        <span className="text-lg font-semibold text-gray-800 group-open:text-primary-700">
+                        <span className="text-lg font-semibold text-slate-800 group-open:text-primary-700">
                           {faq.q}
                         </span>
                         <span className="ml-4 flex-shrink-0 text-primary-600 group-open:hidden">+</span>
                         <span className="ml-4 flex-shrink-0 text-primary-600 hidden group-open:inline">−</span>
                       </summary>
-                      <div className="px-6 pb-6 pt-2 text-gray-600">
+                      <div className="px-6 pb-6 pt-2 text-slate-600">
                         <p>{faq.a}</p>
                       </div>
                     </details>
@@ -144,28 +152,29 @@ export default function FAQPage() {
 
         {/* Still Have Questions */}
         <div className="mt-16 text-center">
-          <div className="bg-primary-50 border border-primary-200 rounded-xl p-8 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
-            <p className="text-gray-600 mb-6">
+          <div className="glass mx-auto max-w-3xl p-8">
+            <h2 className="text-2xl font-bold mb-4 text-slate-900">Still Have Questions?</h2>
+            <p className="text-slate-600 mb-6">
               Our support team is here to help you with any additional questions about scholarships, applications, or our programs.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/contact" className="btn-primary">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <Link href="/contact" className="btn-primary">
                 Contact Support
+              </Link>
+              <a href={`tel:${ORGANIZATION.phone}`} className="btn-secondary">
+                Call: {ORGANIZATION.phone}
               </a>
-              <a href="tel:+601160740897" className="btn-secondary">
-                Call: +601160740897
-              </a>
-              <a href="mailto:ashmrk262@gmail.com" className="btn-secondary bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white">
+              <a href={`mailto:${ORGANIZATION.emails[0]}`} className="btn-secondary">
                 Email Us
               </a>
             </div>
-            <p className="text-sm text-gray-500 mt-6">
+            <p className="text-sm text-slate-500 mt-6">
               Response time: Within 24-48 hours during business days
             </p>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

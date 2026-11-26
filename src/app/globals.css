@@ -6,53 +6,192 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-slate-50 text-slate-900 antialiased;
+    /* Fixed aurora mesh so every frosted surface has something to refract */
+    background-image:
+      radial-gradient(55rem 55rem at 8% -12%, rgba(99, 102, 241, 0.18), transparent 60%),
+      radial-gradient(45rem 45rem at 100% 0%, rgba(56, 189, 248, 0.16), transparent 55%),
+      radial-gradient(45rem 45rem at 50% 115%, rgba(244, 63, 94, 0.1), transparent 60%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
-  
+
+  ::selection {
+    @apply bg-primary-600/20 text-slate-900;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
+    @apply font-semibold tracking-tight;
   }
-  
+
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl;
   }
-  
+
   h2 {
     @apply text-3xl md:text-4xl;
   }
-  
+
   h3 {
     @apply text-2xl md:text-3xl;
   }
 }
 
 @layer components {
+  /* Frosted surface used by cards, forms and content panels */
+  .glass {
+    @apply rounded-2xl border border-white/60 bg-white/60 backdrop-blur-xl;
+    box-shadow: 0 10px 40px -16px rgba(15, 23, 42, 0.18);
+  }
+
+  /* Same material for dark chrome (hero panel, CTA, footer blocks) */
+  .glass-dark {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl;
+    box-shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.5);
+  }
+
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/20 transition duration-300 hover:bg-primary-700 hover:shadow-primary-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
   }
-  
+
   .btn-secondary {
-    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/70 px-6 py-2.5 text-sm font-semibold text-slate-700 backdrop-blur transition duration-300 hover:border-slate-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
   }
-  
+
+  /* Donation actions always use the red accent so they read as the primary ask */
+  .btn-donate {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-600/25 transition duration-300 hover:bg-red-700 hover:shadow-red-600/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2;
+  }
+
   .card {
-    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden;
+    @apply overflow-hidden rounded-2xl border border-white/60 bg-white/60 backdrop-blur-xl transition duration-300;
+    box-shadow: 0 10px 40px -16px rgba(15, 23, 42, 0.18);
   }
-  
+
+  .card:hover {
+    box-shadow: 0 28px 60px -28px rgba(49, 46, 129, 0.45);
+    transform: translateY(-2px);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary-200/70 bg-primary-50/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700 backdrop-blur;
+  }
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .section-padding {
     @apply py-10 md:py-16;
   }
+
+  .section-heading {
+    @apply text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl;
+  }
 }
 
+/* Form controls stay opaque so text is always legible inside frosted panels */
 .input-field {
-  @apply w-full rounded-lg border border-gray-300 px-3 py-2 text-sm
-  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+  @apply w-full rounded-xl border border-slate-200 bg-white/80 px-3.5 py-2.5 text-sm text-slate-900 backdrop-blur
+  placeholder:text-slate-400
+  focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
   transition;
 }
 
+/* ---------------------------------------------------------------------------
+   Rich text
+   Shared by the Tiptap editor (`.tiptap.rich-text`) and published posts
+   (`RichText`), so what an admin writes matches what a reader sees.
+--------------------------------------------------------------------------- */
+.rich-text {
+  @apply text-slate-700;
+}
+
+.rich-text > * + * {
+  @apply mt-4;
+}
+
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4 {
+  @apply font-semibold tracking-tight text-slate-900;
+}
+
+.rich-text h1 { @apply mt-8 text-3xl; }
+.rich-text h2 { @apply mt-8 text-2xl; }
+.rich-text h3 { @apply mt-6 text-xl; }
+.rich-text h4 { @apply mt-5 text-lg; }
+
+.rich-text p {
+  @apply leading-relaxed;
+}
+
+.rich-text a {
+  @apply text-primary-600 underline underline-offset-2 transition hover:text-primary-700;
+}
+
+.rich-text strong { @apply font-semibold text-slate-900; }
+
+.rich-text ul,
+.rich-text ol {
+  @apply space-y-1.5 pl-6;
+}
+
+.rich-text ul { @apply list-disc; }
+.rich-text ol { @apply list-decimal; }
+
+.rich-text li > ul,
+.rich-text li > ol {
+  @apply mt-1.5;
+}
+
+.rich-text blockquote {
+  @apply border-l-4 border-primary-200 pl-4 italic text-slate-600;
+}
+
+.rich-text hr {
+  @apply my-8 border-slate-200;
+}
+
+.rich-text code {
+  @apply rounded-md bg-slate-100 px-1.5 py-0.5 text-sm text-slate-800;
+}
+
+.rich-text pre {
+  @apply overflow-x-auto rounded-xl bg-ink-900 p-4 text-sm text-slate-100;
+}
+
+.rich-text pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+.rich-text img {
+  @apply h-auto max-w-full rounded-xl;
+}
+
+.rich-text table {
+  @apply w-full border-collapse text-sm;
+}
+
+.rich-text th,
+.rich-text td {
+  @apply border border-slate-200 px-3 py-2 text-left align-top;
+}
+
+.rich-text th {
+  @apply bg-slate-50 font-semibold text-slate-900;
+}
+
+/* Editor surface */
+.tiptap {
+  min-height: var(--editor-min-height, 220px);
+  @apply px-4 py-3;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none float-left h-0 text-slate-400;
+}

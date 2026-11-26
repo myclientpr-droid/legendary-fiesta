@@ -37,13 +37,13 @@ const Share = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-indigo-800/30 to-purple-800/30 rounded-2xl p-6 border border-white/10 backdrop-blur-sm mb-8">
+    <div className="mb-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
       <h2 className="text-lg font-semibold text-white mb-4 text-center flex items-center justify-center">
         <FaShare className="mr-2 text-amber-400" />
         Share Our Platform
       </h2>
       
-      <p className="text-indigo-200 text-center mb-6 text-sm">
+      <p className="mb-6 text-center text-sm text-slate-400">
         Support free and inclusive education—share this platform with your friends, students, and community.
       </p>
       
@@ -52,7 +52,7 @@ const Share = () => {
         <button
           aria-label='Share this website'
           onClick={handleShare}
-          className="flex items-center justify-center gap-2 px-2 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium hover:from-indigo-500 hover:to-purple-500 transition-all shadow-md hover:shadow-lg"
+          className="flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-4 py-3 font-medium text-white shadow-md transition hover:bg-primary-500 hover:shadow-lg"
         >
           <FaShare size='18'/>
           <span>Share</span>
@@ -67,7 +67,7 @@ Visit: https://ashedui.vercel.app`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 px-2 py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 text-white font-medium hover:from-green-500 hover:to-emerald-500 transition-all shadow-md hover:shadow-lg"
+          className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 font-medium text-white shadow-md transition hover:bg-emerald-500 hover:shadow-lg"
         >
           <FaWhatsapp size='18'/>
           <span>WhatsApp</span>
@@ -77,7 +77,7 @@ Visit: https://ashedui.vercel.app`
         <button
           aria-label='Copy website link'
           onClick={copyLink}
-          className="flex items-center justify-center gap-2 px-2 py-3 rounded-xl bg-gradient-to-r from-slate-600 to-slate-700 text-white font-medium hover:from-slate-500 hover:to-slate-600 transition-all shadow-md hover:shadow-lg"
+          className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-medium text-slate-200 backdrop-blur transition hover:bg-white/10"
         >
           {copied ? <FaRegCopy size='18'/> : <FaLink size='18'/>}
           <span>{copied ? "Copied!" : "Copy Link"}</span>

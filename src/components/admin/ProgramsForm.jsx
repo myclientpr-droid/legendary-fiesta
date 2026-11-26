@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import axios from "axios";
 import Image from "next/image";
 import { toast } from 'react-toastify';
+import RichTextEditor from './RichTextEditor';
 
 export const ProgramsForm = ()=> {
   const [loading, setLoading] = useState(false);
@@ -152,15 +153,11 @@ export const ProgramsForm = ()=> {
     <label htmlFor="description" className="text-sm font-medium text-gray-700">
       Program Description
     </label>
-    <textarea
-      id="description"
-      name="description"
+    <RichTextEditor
       value={data.description}
-      onChange={handleChange}
-      placeholder="Full program details go here"
-      rows={8}
-      required
-      className="input-field resize-none"
+      onChange={(description) => setData((prev) => ({ ...prev, description }))}
+      placeholder="Describe the program, its activities and outcomes…"
+      minHeight={260}
     />
   </div>
 

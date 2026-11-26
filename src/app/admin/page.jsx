@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@/lib/config/auth";
 
 export default async function AdminHomePage() {
-  const user = await currentUser();
+  const session = await auth();
   
   const adminRoutes = [
     {
@@ -25,18 +25,32 @@ export default async function AdminHomePage() {
       description: "Create a new program",
       href: "/admin/post/programs",
     },
+    {
+      title: "Manage Academy",
+      description: "View, update, and delete ASH Online Academy activities",
+      href: "/admin/academy",
+    },
+    {
+      title: "Post Academy Activity",
+      description: "Create a new online academy activity post",
+      href: "/admin/post/academy",
+    },
+    {
+      title: "Manage Team",
+      description: "View, update, and delete team members",
+      href: "/admin/team",
+    },
+    {
+      title: "Add Team Member",
+      description: "Add a member with picture, name, position and social link",
+      href: "/admin/post/team",
+    },
   ];
 
   return (
     <section className="p-6">
             <div className='py-2 px-4'>
-      <h1 className='py2'>Hi {user?.firstName && user?.lastName
-      ? `${user.firstName} ${user.lastName}` 
-      : user?.firstName
-        ? user.firstName 
-        : user?.lastName 
-          ? user.lastName 
-          : "Admin"} 👋</h1>
+      <h1 className='py2'>Hi {session?.user?.name || "Admin"} 👋</h1>
       <h3 className='pt-2'>Welcome backe to the Admin Dashboard</h3>
       </div>
       <p className="text-gray-600 px-4 mb-6">

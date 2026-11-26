@@ -1,21 +1,24 @@
+import PageHeader from "@/components/PageHeader";
+import { OFFICES, ORGANIZATION } from "@/lib/config/site";
+
 export default function PrivacyPage() {
   const effectiveDate = "January 1, 2024";
   const lastUpdated = "December 19, 2025";
 
   return (
-    <div className="section-padding">
-      <div className="container-custom max-w-4xl">
-        <div className="text-center mb-12">
-          <h1 className="mb-4">Privacy Policy</h1>
-          <div className="text-gray-600">
-            <p>Effective Date: {effectiveDate}</p>
-            <p>Last Updated: {lastUpdated}</p>
-          </div>
-        </div>
+    <>
+      <PageHeader
+        eyebrow="Legal"
+        title="Privacy Policy"
+        description={`Effective ${effectiveDate} · Last updated ${lastUpdated}`}
+      />
 
+      <div className="section-padding">
+        <div className="container-custom max-w-4xl">
+        <div className="glass p-6 sm:p-10">
         <div className="prose prose-lg max-w-none">
-          <div className="mb-8 p-6 bg-gray-50 rounded-lg">
-            <p className="font-semibold text-gray-700">
+          <div className="mb-8 rounded-xl border border-white/60 bg-white/60 p-6 backdrop-blur">
+            <p className="font-semibold text-slate-700">
               Aurbina Scholars Hub ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Aurbina Scholars Hub.
             </p>
           </div>
@@ -177,14 +180,21 @@ export default function PrivacyPage() {
                 If you have any questions about this Privacy Policy or our data practices, please contact our Data Protection Officer at:
               </p>
               <div className="mt-4 space-y-2">
-                <p><strong>Email:</strong> ashmrk262@gmail.com</p>
-                <p><strong>Address:</strong> Aurbina Scholars Hub<br />456 Education Avenue<br />Kuala Lumpur Malaysia</p>
-                <p><strong>Phone:</strong> +601160740897 • (Sun-Thu, 9am-5pm)</p>
+                <p><strong>Email:</strong> {ORGANIZATION.emails[0]}</p>
+                <p><strong>Address:</strong> {ORGANIZATION.name}</p>
+                <ul className="list-disc pl-6">
+                  {OFFICES.map((office) => (
+                    <li key={office.country}>{office.lines.join(", ")}</li>
+                  ))}
+                </ul>
+                <p><strong>Phone:</strong> {ORGANIZATION.phone} • (Sun-Thu, 9am-5pm)</p>
               </div>
             </section>
           </div>
         </div>
+        </div>
       </div>
     </div>
+    </>
   );
 }

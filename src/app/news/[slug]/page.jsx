@@ -1,31 +1,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
-import FormatedText from "@/components/shared/FormatedText";
-//import { auth } from "@clerk/nextjs/server";
+import RichText from "@/components/shared/RichText";
 
 export default async function NewsDetailPage({ params }) {
   const { slug } = await params;
-  /*const { userId } = await auth();
-  if(!userId) return null;*/
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news/${slug}`)
   const {news} = await res.json()
   if (!news) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="min-h-screen">
+      <div className="mx-auto max-w-3xl px-4 py-12">
         {/* Back Button */}
         <Link 
           href="/news" 
-          className="inline-flex items-center text-blue-500 underline hover:text-gray-900 mb-6"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 transition hover:text-primary-700"
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
+          <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
 
         {/* Article Card */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="glass overflow-hidden">
           {/* Image */}
           <div className="relative h-64 md:h-80">
             <Image
@@ -33,6 +30,7 @@ export default async function NewsDetailPage({ params }) {
               alt={news.title}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
               priority
             />
           </div>
@@ -40,33 +38,33 @@ export default async function NewsDetailPage({ params }) {
           {/* Content */}
           <div className="p-6 md:p-8">
             {/* Meta */}
-            <div className="flex items-center space-x-4 mb-4">
+            <div className="mb-4 flex flex-wrap items-center gap-4 text-sm">
               <span className="text-primary-600 font-medium">{news.category}</span>
-              <span className="text-gray-500">•</span>
-              <span className="flex items-center text-gray-600">
+              <span className="text-slate-400">•</span>
+              <span className="flex items-center text-slate-500">
                 <Calendar className="w-4 h-4 mr-1" />
                 {news.date}
               </span>
-              <span className="flex items-center text-gray-600">
+              <span className="flex items-center text-slate-500">
                 <Clock className="w-4 h-4 mr-1" />
                 {news?.readTime}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h1 className="mb-4 text-3xl text-slate-900 md:text-4xl">
               {news.title}
             </h1>
 
             {/* Excerpt */}
-            <div className="text-lg text-gray-600 mb-6 leading-relaxed">
-              <FormatedText text={news.excerpt}/>
-            </div>
+            {news.excerpt && (
+              <p className="mb-6 text-lg leading-relaxed text-slate-600">
+                {news.excerpt}
+              </p>
+            )}
 
             {/* Full Content */}
-            <div className="prose max-w-none text-gray-700">
-              <FormatedText text={news.content}/>
-            </div>
+            <RichText html={news.content} />
           </div>
         </div>
       </div>

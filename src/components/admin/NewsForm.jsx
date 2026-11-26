@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { toast } from 'react-toastify';
+import RichTextEditor from './RichTextEditor';
 
 export const NewsForm = ()=> {
   const [loading, setLoading] = useState(false);
@@ -113,15 +114,10 @@ export const NewsForm = ()=> {
       className="input-field"
       rows={3}></textarea>
       <label htmlFor='content' className="text-sm font-medium text-gray-700">Full article body</label>
-      <textarea
-      type='text'
-      name='content'
-      id='content'
-      placeholder='Article body goes here'
-      rows={6}
-      onChange={handleChange}
-      className="input-field"
-      value={data.content}></textarea>
+      <RichTextEditor
+      value={data.content}
+      onChange={(content) => setData((prev) => ({ ...prev, content }))}
+      placeholder="Write the article body…" />
       
       {/*category and status*/}
       <div className='grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-6 md:gap-8'>

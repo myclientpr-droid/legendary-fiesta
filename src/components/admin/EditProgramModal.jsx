@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import RichTextEditor from "./RichTextEditor";
 
 export default function EditProgramModal({
   isOpen,
@@ -119,13 +120,11 @@ export default function EditProgramModal({
               <label className="block text-sm font-medium mb-1">
                 Full Description
               </label>
-              <textarea
-                name="description"
-                rows={6}
+              <RichTextEditor
+                key={program._id}
                 value={formData.description}
-                onChange={handleChange}
-                className="w-full rounded-md border px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
+                onChange={(description) => setFormData((prev) => ({ ...prev, description }))}
+                placeholder="Describe the program, its activities and outcomes…"
               />
             </div>
 
