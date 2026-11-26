@@ -129,6 +129,12 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
           <p>&copy; {new Date().getFullYear()} {ORGANIZATION.name}. All rights reserved.</p>
+          <Link
+            href="/developer"
+            className="text-slate-400 transition hover:text-white md:text-center"
+          >
+            Built by Mohammed Ismail
+          </Link>
           <div className="space-y-1 md:text-right">
             {OFFICES.map((office) => (
               <p key={office.country}>{office.lines.join(", ")}</p>

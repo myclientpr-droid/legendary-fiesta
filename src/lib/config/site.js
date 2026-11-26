@@ -1,3 +1,7 @@
+// Canonical origin for metadata, canonical links, JSON-LD and next-sitemap.
+// Must match next-sitemap.js `siteUrl`.
+export const SITE_URL = "https://ashedui.vercel.app";
+
 export const ORGANIZATION = {
   name: "Aurbina Scholars Hub",
   shortName: "ASH",

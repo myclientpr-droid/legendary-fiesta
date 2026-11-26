@@ -4,18 +4,21 @@ import './globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { SessionProvider } from 'next-auth/react'
 import Script from "next/script";
+import { SITE_URL } from "@/lib/config/site";
 
 export const metadata = {
+  // Relative OG images and canonicals resolve against this origin
+  metadataBase: new URL(SITE_URL),
   title: 'Aurbina Scholars Hub - Making a Difference',
   description: 'Non-profit organization dedicated to creating positive change in our community.',
   openGraph: {
     title: "Aurbina Scholars Hub",
     description: "Aurbina Scholars Hub empowers learners and educators through accessible education, research initiatives, and community-based knowledge sharing.",
-    url: "https://ashedui.vercel.app",
+    url: SITE_URL,
     siteName: "Aurbina Scholars Hub",
     images: [
       {
-        url: "https://ashedui.vercel.app/og-image.jpg",
+        url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "Aurbina Scholars Hub - Making a Difference",

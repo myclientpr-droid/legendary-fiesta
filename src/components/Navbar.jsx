@@ -39,43 +39,42 @@ const Navbar = () => {
   const linkClass = (href) =>
     `inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition ${
       isActive(href)
-        ? 'bg-primary-50 text-primary-700 ring-1 ring-primary-100'
-        : 'text-slate-700 hover:bg-slate-900/5 hover:text-slate-900'
+        ? 'bg-white/15 text-white shadow-sm ring-1 ring-white/20'
+        : 'text-slate-300 hover:bg-white/10 hover:text-white'
     }`
 
   const authLinkClass =
-    'inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-900'
+    'inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white'
 
   const mobileLinkClass = (href) =>
     `flex items-center gap-2.5 whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
       isActive(href)
-        ? 'bg-primary-50 text-primary-700'
-        : 'text-slate-700 hover:bg-slate-900/5 hover:text-slate-900'
+        ? 'bg-white/15 text-white shadow-sm ring-1 ring-white/20'
+        : 'text-slate-300 hover:bg-white/10 hover:text-white'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80">
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-ink-800 shadow-[0_8px_30px_-18px_rgba(0,0,0,0.8)]">
       {/* Brand-coloured hairline under the bar */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-400/50 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent"
       />
 
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Brand */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap" onClick={closeMenu}>
+          <Link href="/" className="flex min-w-0 items-center gap-2.5 whitespace-nowrap" onClick={closeMenu}>
             <Image
-              className="h-12 w-12 rounded-full object-cover ring-slate-200"
+              className="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-white/25"
               src="/logo.jpg"
               width={40}
               height={40}
               alt="Aurbina Scholars Hub"
             />
-            <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-ink lg:text-base">
-              {/* The full name needs room for the link row: short mark on laptops, full name above 1280px */}
-              <span className="hidden sm:inline lg:hidden xl:inline">Aurbina Scholars Hub</span>
-              <span className="sm:hidden lg:inline xl:hidden">ASH</span>
+            {/* Wordmark from sm up (phones get just the crest); truncates rather than pushing the actions off-screen */}
+            <span className="hidden min-w-0 truncate whitespace-nowrap text-lg font-semibold tracking-tight text-white sm:block lg:text-base">
+              <span className="inline">Aurbina Scholars Hub</span>
             </span>
           </Link>
 
@@ -101,7 +100,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => signOut({ callbackUrl: '/' })}
-                  className="shrink-0 rounded-full p-2 text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-900"
+                  className="shrink-0 rounded-full p-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
                   title="Sign out"
                   aria-label="Sign out"
                 >
@@ -117,7 +116,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   href="/signup"
-                  className="shrink-0 whitespace-nowrap rounded-full border border-slate-300 bg-white/70 px-2.5 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-white"
+                  className="shrink-0 whitespace-nowrap rounded-full border border-white/25 bg-white/10 px-2.5 py-2 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/15"
                 >
                   Sign up
                 </Link>
@@ -145,7 +144,7 @@ const Navbar = () => {
             </Link>
             <button
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="shrink-0 rounded-lg p-2 text-slate-700 transition hover:bg-slate-900/5"
+              className="shrink-0 rounded-lg p-2 text-slate-200 transition hover:bg-white/10 hover:text-white"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
             >
@@ -160,7 +159,7 @@ const Navbar = () => {
 
         {/* Mobile drawer */}
         {isMenuOpen && (
-          <div className="border-t border-slate-200/80 pt-3 pb-6 lg:hidden">
+          <div className="border-t border-white/10 pt-3 pb-6 lg:hidden">
             <div className="space-y-1">
               {MOBILE_LINKS.map((link) => (
                 <Link
@@ -175,14 +174,14 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="mt-4 space-y-2 border-t border-slate-200/80 pt-4">
+            <div className="mt-4 space-y-2 border-t border-white/10 pt-4">
               {status === 'authenticated' ? (
                 <>
                   {isAdminUser && (
                     <Link
                       href="/admin"
                       onClick={closeMenu}
-                      className="flex items-center justify-center gap-2 rounded-full border border-slate-300 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-900/5"
+                      className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
                     >
                       <LayoutDashboard className="h-4 w-4" />
                       Dashboard
@@ -190,7 +189,7 @@ const Navbar = () => {
                   )}
                   <button
                     onClick={() => signOut({ callbackUrl: '/' })}
-                    className="w-full rounded-full border border-slate-300 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-900/5"
+                    className="w-full rounded-full border border-white/20 bg-white/5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
                     Sign out
                   </button>
@@ -201,7 +200,7 @@ const Navbar = () => {
                     <Link
                       href="/login"
                       onClick={closeMenu}
-                      className="block rounded-full border border-slate-300 py-2.5 text-center text-sm font-semibold text-slate-700 transition hover:bg-slate-900/5"
+                      className="block rounded-full border border-white/20 bg-white/5 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-white/10"
                     >
                       Sign in
                     </Link>
