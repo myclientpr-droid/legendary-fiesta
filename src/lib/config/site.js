@@ -26,7 +26,7 @@ export const OFFICES = [
 ];
 
 export const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1RSk1oMjo9/",
+  facebook: "https://www.facebook.com/share/1FXQExQcCi/",
   x: "https://x.com/mrofik262",
   instagram: "https://www.instagram.com/scholarshuboffical?igsh=MWR3YTY1MjY4bHB5ZQ==",
   linkedin: "https://www.linkedin.com/company/aurbinascholarshub1/",

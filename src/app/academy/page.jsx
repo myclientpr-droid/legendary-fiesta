@@ -27,7 +27,7 @@ export default async function AcademyPage() {
             width={1254}
             height={1254}
             preload
-            className="h-24 w-24 rounded-full bg-white object-contain p-2 ring-1 ring-white/70 shadow-glass sm:h-28 sm:w-28"
+            className="mx-auto h-28 w-28 rounded-full bg-white object-contain p-1 ring-1 ring-white/70 shadow-glass sm:h-32 sm:w-32"
           />
         }
       />

@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
               <Image
-                className="h-10 w-10 rounded-full object-cover ring-1 ring-white/10"
+                className="h-12 w-12 rounded-full object-cover ring-white/10"
                 src="/logo.jpg"
                 width={40}
                 height={40}

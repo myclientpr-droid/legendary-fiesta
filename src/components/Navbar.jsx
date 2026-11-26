@@ -66,10 +66,10 @@ const Navbar = () => {
           {/* Brand */}
           <Link href="/" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap" onClick={closeMenu}>
             <Image
-              className="h-9 w-9 rounded-full object-cover ring-1 ring-slate-200"
+              className="h-12 w-12 rounded-full object-cover ring-slate-200"
               src="/logo.jpg"
-              width={36}
-              height={36}
+              width={40}
+              height={40}
               alt="Aurbina Scholars Hub"
             />
             <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-ink lg:text-base">
